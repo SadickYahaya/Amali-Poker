@@ -41,11 +41,11 @@ const buttItems = ref(["Upload", "Save"]);
 
 .button {
   display: flex;
-  margin: 60px 0 0px 100px;
+  margin: 53px 0 0 90px;
   gap: 130px;
 }
 h1 {
-  margin-top: 40px;
+  margin-top: 5px;
   text-align: center;
   color: rgba(71, 77, 102, 1);
   font-weight: 700px;
@@ -55,13 +55,12 @@ h1 {
 }
 
 .textarea {
-  margin: 30px 0 0 40px;
+  margin: 22px 0 0 46px;
 }
 
 span {
-  position: fixed;
-  right: 17%;
-  top: 21%;
   cursor: pointer;
+  margin-left: 620px;
+  margin-top: 10px;
 }
 </style>
