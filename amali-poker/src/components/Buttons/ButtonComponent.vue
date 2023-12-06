@@ -23,7 +23,7 @@ button {
   color: white;
   border-radius: 8px;
   border: none;
-  width: 120%;
-  height: 42px;
+  width: 125%;
+  height: 6vh;
 }
 </style>
