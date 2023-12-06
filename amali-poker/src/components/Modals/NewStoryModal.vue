@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <div class="modal-content">
-      <span class="material-icons"> close_small </span>
+      <div class="close"><span class="material-icons"> close </span></div>
       <h1>Create New Story</h1>
       <div class="textarea">
         <TextAreaComponent />
@@ -28,39 +28,48 @@ const buttItems = ref(["Upload", "Save"]);
 
 <style scoped>
 .modal {
-  position: fixed;
-  top: 20%;
-  left: 30%;
-  width: 703px;
-  height: 365px;
-  border: 1px solid black;
+  max-width: 703px;
+  flex-direction: column;
+  padding: 50px;
   border-radius: 30px;
   background-color: rgba(253, 245, 242, 1);
-  border: none;
+  margin: 180px auto;
 }
 
-.button {
-  display: flex;
-  margin: 53px 0 0 90px;
-  gap: 130px;
-}
 h1 {
-  margin-top: 5px;
   text-align: center;
   color: rgba(71, 77, 102, 1);
   font-weight: 700px;
   font-size: 34px;
   line-height: 41.15px;
-  font-family: "Inter", sans-serif;
 }
 
 .textarea {
-  margin: 22px 0 0 46px;
+  margin: 30px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  color: gray;
 }
 
 span {
+  padding: 6px;
+}
+
+span:hover {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  margin-left: 620px;
-  margin-top: 10px;
+  color: rgba(71, 77, 102, 1);
+  padding: 6px;
 }
 </style>
