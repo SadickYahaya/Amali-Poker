@@ -11,19 +11,19 @@ import { defineProps } from "vue";
 
 defineProps({
   text: {
-    type: Array,
+    type: String,
   },
 });
 </script>
 
 <style scoped>
 button {
-  width: 149px;
-  height: 42px;
-  padding: 8px 16px;
+  padding: 8px 30px;
   background-color: rgba(221, 89, 40, 1);
   color: white;
   border-radius: 8px;
   border: none;
+  width: 125%;
+  height: 6vh;
 }
 </style>
