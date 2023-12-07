@@ -7,8 +7,6 @@
 
 <script setup>
 import Landingpage from './components/LandingPage';
-
-
 </script>
 
 <style>
