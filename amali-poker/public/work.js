@@ -1,14 +1,11 @@
-const optionMenu = document.querySelector(".select-menu"),
-selectBtn = optionMenu.querySelector(".select-btn"),
-options = optionMenu.querySelectorAll(".option"),
-sBtn_text = document.querySelector(".sBtn-text");
+function getSelectvalue( ){
+    var selectedValue = document.getElementById("list").value;
+    console.log(selectedValue);
+   }
 
-selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
-options.forEach(option =>{
-    option.addEventListener("click", ()=>{
-let selcetedOption = option.querySelector(".option").innerHTML;
-sBtn_text.innerText = selcetedOption;
-        console.log( selcetedOption)
-    })
 
-})
+// second dropdown
+   function getSelectvalue( ){
+    var selectedValue = document.getElementById("second-list").value;
+    console.log(selectedValue);
+   }

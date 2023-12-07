@@ -1,51 +1,68 @@
-
-@import url("https://fonts.googleapis.com/css?family=Poppins");
 * {
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-}
-body {
   font-family: "Poppins", sans-serif;
 }
-
-.select-menu{
-  width: 100%;
+body {
+  background-color: gray;
+}
+p {
+  font-size: 20px;
   text-align: center;
-  
+  padding-bottom: 5px;
 }
-h3{
-  padding-top: 20px;
+p a {
+  text-align: center;
+  color: black;
 }
-.select-menu .select-btn{
-  float: right;
-  border: 1px solid;
-  border-radius: 3px;
-  margin-right: 20px;
-  margin-top: 40px;
+.flex {
+  background-color: white;
+  max-width: 300px;
+  height: 60vh;
+  margin: 50px auto;
 }
-.select-menu .options{
-  border-radius: 3px;
-  display: inline-block;
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 10px;
+}
+form {
+  font-size: 8px;
+  margin-left: 10px;
+}
+#question {
+  width: 8px;
+}
+label {
   position: relative;
-  margin-top: 76px ;
-  left: 180px;
-  background-color: red;
-  display: none;
-  
-  
+  bottom: 3.4px;
 }
-.select-menu .active .options{
-  display: block;
-}
-.select-menu .options .option{
- list-style: none;
- display: flex;
- cursor: pointer;
- align-items: center;
- padding: 0px 5px;
 
+#second-list {
+  margin: 8px 10px;
+  width: 280px;
 }
-.options .option:hover{
-  background:white;
+#list {
+  margin-right: 4px;
+}
+.btn{
+  margin: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crt-btn{
+  width: 80px;
+border: none;
+background: orange;
+border-radius: 3px;
+}
+.cancel-btn{
+  width: 80px;
+border: none;
+background: orange;
+border-radius: 3px;
 }
