@@ -3,9 +3,6 @@
   <Landingpage />
 
     </div>
-  <div>
-    <NewStoryModal />
-  </div>
 </template>
 
 <script setup>
