@@ -1,7 +1,7 @@
 <template>
   <div>
   <div class="container">
-    <div class="bg-img"><img src="../assets/left-image.png" alt="" /></div>
+    <div class="bg-img"><img src="../assets/left2-image.svg" alt="" /></div>
 
     <div class="content-wrapper">
       <div class="info-text">
@@ -10,11 +10,9 @@
         </div>
         <div class="description">
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-
-            <br />Doloremque inventore repudiandae numquam repellendus <br />
-            quod aliquam temporibus libero a ipsa impedit, <br />quidem maiores
-            reprehenderit.
+          
+Amalipoker facilitates sprint planning with a dynamic, user-friendly platform. Real-time multiplayer
+ sessions, intuitive design, and strategic <br>features streamline collaboration for effective <br>planning and decision-making
           </p>
         </div>
 
@@ -24,24 +22,24 @@
       </div>
     </div>
 
-    <div class="bg-img"><img src="../assets/sssssss.png" alt="" /></div>
+    <div class="bg-img"><img src="../assets/right-image2.svg" alt="" /></div>
   </div>
 
   <div class="icons-wrapper">
     <div class="icons">
       <div class="icon-section">
-        <img src="../assets/noun-plan-6345402.svg" alt="" />
-        <p>Sprint Plan Effortlessly</p>
+        <img src="../assets/icon1.svg" alt="" />
+        <p>Sprint Plan <br> Effortlessly</p>
       </div>
 
       <div class="icon-section">
-        <img src="../assets/noun-estimate-2323300.svg" alt="" />
-        <p>Estimate Like An Expert</p>
+        <img src="../assets/icon2.svg" alt="" />
+        <p>Estimate Like An <br>Expert</p>
       </div>
 
       <div class="icon-section">
-        <img src="../assets/noun-online-1455728.svg" alt="" />
-        <p>Play Online Anywhere</p>
+        <img src="../assets/icon3.svg" alt="" />
+        <p>Play Online <br> Anywhere</p>
       </div>
     </div>
   </div>
@@ -93,6 +91,7 @@
 .container p {
   font-family: "Poppins";
   font-weight: 200;
+  color: #101840
 }
 .content-wrapper {
   display: flex;
@@ -105,6 +104,7 @@
 
 .bg-img {
   width: 100%;
+  align-items: center;
 }
 
 .bg-img img {
@@ -118,9 +118,16 @@ button {
   height: 50px;
   width: 20%;
   border: 1px solid #e3e3e3;
-  border-radius: 5px;
+  border-radius: 8px;
   font-family: "Poppins";
+    background: rgb(245, 118, 44);
+    
 }
+
+button:hover{
+  cursor: pointer;
+    background: rgb(255, 136, 0)}
+
 
 .icons-wrapper {
   display: flex;
@@ -129,7 +136,7 @@ button {
 }
 .icons {
   display: flex;
-  gap: 130px;
+  gap: 160px;
   padding-top: 90px;
   width: 900px;
   flex-wrap: wrap;
