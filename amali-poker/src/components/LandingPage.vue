@@ -121,6 +121,9 @@ button {
   border-radius: 8px;
   font-family: "Poppins";
     background: rgb(245, 118, 44);
+      color: white;
+
+    
     
 }
 
