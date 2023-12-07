@@ -27,6 +27,18 @@ const buttItems = ref(["Upload", "Save"]);
 </script>
 
 <style scoped>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .modal {
   max-width: 703px;
   flex-direction: column;

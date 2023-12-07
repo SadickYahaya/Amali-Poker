@@ -1,7 +1,5 @@
 <template>
-  <!-- <div class="logo">
-    <img src="../assets/logo.svg" alt="" />
-  </div> -->
+  <div>
   <div class="container">
     <div class="bg-img"><img src="../assets/left-image.png" alt="" /></div>
 
@@ -24,8 +22,6 @@
           <button>Get Started</button>
         </div>
       </div>
-
-      <!-- <img src="../assets/sssssss.png" alt="" style="transform: scale(1.2); position: relative; top:-170px;"> -->
     </div>
 
     <div class="bg-img"><img src="../assets/sssssss.png" alt="" /></div>
@@ -49,7 +45,9 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
+
 
 <script setup></script>
 
@@ -60,7 +58,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "poppins";
-  /* outline: 1px solid; */
 }
 
 .logo img {
