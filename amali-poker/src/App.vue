@@ -1,13 +1,21 @@
 <template>
-  <div>
-    <NewStoryModal />
-    <PokerDashboard />
-  </div>
+    <div class="main">
+  <Landingpage />
+
+    </div>
 </template>
 
 <script setup>
-import NewStoryModal from "./components/Modals/NewStoryModal.vue";
-import PokerDashboard from "./components/PokerDashboard.vue";
+import Landingpage from './components/LandingPage';
 </script>
 
-<style scoped></style>
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

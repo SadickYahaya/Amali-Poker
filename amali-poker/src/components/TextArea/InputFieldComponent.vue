@@ -22,12 +22,14 @@ textarea {
   border: 1px solid rgba(217, 217, 217, 1);
   border-radius: 6px;
   font-weight: 500px;
+  font-weight: normal;
   font-size: 20px;
   line-height: 24.2px;
   color: rgba(71, 77, 102, 1);
-  background-color: rgba(253, 245, 242, 1);
+  background-color: #ffffff;
   width: 100%;
   outline: 0;
+  padding: 3px;
   resize: none;
 }
 </style>
