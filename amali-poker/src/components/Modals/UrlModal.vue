@@ -4,16 +4,17 @@
       <div class="input-box">
         <h1>Copy URL</h1>
         <input
+          ref="urlInput"
           type="text"
           placeholder="https://app.planitpoker.com/room/RddrlsVjwxgj8RPJ7p0A"
         />
       </div>
       <div class="btn-main">
         <div class="save-btn">
-          <button>Copy</button>
+          <button @click="copyToClipboard">Copy</button>
         </div>
         <div class="cancil-btn">
-          <button>Cancel</button>
+          <button @click="cancelCopy">Cancel</button>
         </div>
       </div>
     </div>
@@ -23,6 +24,19 @@
 
 
 <script setup>
+import { ref } from "vue";
+
+const urlInput = ref(null);
+
+// Function to copy the URL
+const copyToClipboard = () => {
+  const inputElement = urlInput.value;
+  inputElement.select();
+  document.execCcmmand("copy");
+};
+
+// function to cancel the URL
+const cancelCopy = () => {};
 </script>
 
 
