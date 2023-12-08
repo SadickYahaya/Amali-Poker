@@ -2,38 +2,63 @@
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  font-family: "Poppins", sans-serif;
 }
 body {
   background-color: gray;
 }
-p {
-  font-size: 20px;
+h3 {
+  color: rgb(85, 83, 83);
   text-align: center;
-  padding-bottom: 5px;
+  font-size: 9px;
+  padding: 10px 0px 1px 0px;
+  text-decoration: 0.6px underline;
+  font-family: "Poppins", sans-serif;
 }
-p a {
-  text-align: center;
-  color: black;
-}
-.flex {
-  background-color: white;
-  max-width: 300px;
-  height: 60vh;
+
+.main-container {
+  background-color: #fdf5f2;
+  max-width: 250px;
+  height: 180px;
   margin: 50px auto;
+  border-radius: 3px;
 }
+.sub-container {
+  padding: 0px 10px;
+}
+
 .flex-box {
+  font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0px 10px;
 }
+input {
+  font-size: 7px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fdf5f2;
+  border: none;
+  width: 130px;
+  padding: 4px;
+  border-style: groove;
+  border-radius: 2px;
+  margin-top: 3px;
+}
+option {
+  background-color: #fdf5f2;
+}
+
 form {
-  font-size: 8px;
+  font-size: 7px;
   margin-left: 10px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(93, 92, 92);
 }
 #question {
   width: 8px;
+  color: rgb(93, 92, 92);
+  border: none;
+  background-color: rgb(93, 92, 92);
 }
 label {
   position: relative;
@@ -41,28 +66,54 @@ label {
 }
 
 #second-list {
-  margin: 8px 10px;
-  width: 280px;
+  margin: 0px 10px;
+  width: 210px;
+  font-size: 8px;
+  font-family: "Poppins", sans-serif;
+  padding: 2px;
+  border: none;
+  border-style: groove;
+  border-radius: 2px;
+  background-color: #fdf5f2;
+  color: rgb(93, 92, 92);
 }
 #list {
-  margin-right: 4px;
+  background-color: #fdf5f2;
+  width: 62px;
+  font-size: 7px;
+  padding: 3px;
+  border: none;
+  border-style: groove;
+  border-radius: 2px;
+  color: rgb(93, 92, 92);
 }
-.btn{
-  margin: 0px 20px;
+.btn {
+  margin: 6px 34px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.crt-btn{
-  width: 80px;
-border: none;
-background: orange;
-border-radius: 3px;
+.crt-btn {
+  width: 60px;
+  font-size: 7px;
+  border: none;
+  color: white;
+  background: #dd5928;
+  text-decoration: 0.6px underline;
+  border-radius: 2px;
+  padding: 3px 2px;
+  font-family: "Poppins", sans-serif;
 }
-.cancel-btn{
-  width: 80px;
-border: none;
-background: orange;
-border-radius: 3px;
+
+.cancel-btn {
+  color: white;
+  font-size: 7px;
+  width: 60px;
+  text-decoration: 0.6px underline;
+  border: none;
+  background: #dd5928;
+  border-radius: 2px;
+  padding: 3px 2px;
+  font-family: "Poppins", sans-serif;
 }
