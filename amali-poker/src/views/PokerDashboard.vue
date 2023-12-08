@@ -35,7 +35,7 @@ const navigatePage = () => {
 
 .navLogo,
 img {
-  margin: 2%;
+  margin: 21%;
   width: 40px;
 }
 
