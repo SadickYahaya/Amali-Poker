@@ -5,6 +5,7 @@
       id=""
       cols="3"
       rows="4"
+      value=""
       placeholder="Put your stories in here. Each line is a new story"
     >
     </textarea>
