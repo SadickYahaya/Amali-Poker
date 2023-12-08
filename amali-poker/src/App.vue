@@ -1,12 +1,16 @@
 <template>
     <div class="main">
-  <Landingpage />
+      <SessionName />
+  <!-- <Landingpage /> -->
 
     </div>
+    
+
 </template>
 
 <script setup>
-import Landingpage from './components/LandingPage';
+// import Landingpage from './components/LandingPage';
+import SessionName from './components/SessionName/SessionName.vue'
 </script>
 
 <style>
