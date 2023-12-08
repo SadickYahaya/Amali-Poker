@@ -1,11 +1,15 @@
 <template>
   <div>
-    <NewStoryModal />
+    <sessionName />
   </div>
+  <!-- <div>
+    <NewStoryModal />
+  </div> -->
 </template>
 
 <script setup>
-import NewStoryModal from "./components/Modals/NewStoryModal.vue";
+import sessionName from "./components/SessionName/sessionName.vue";
+// import NewStoryModal from "./components/Modals/NewStoryModal.vue";
 </script>
 
 <style scoped></style>
