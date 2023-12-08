@@ -19,7 +19,13 @@
 
 <style scoped>
 
-
+body {
+  box-sizing: border-box;
+  /* background-image: url(../assets/); */
+}
+.main {
+  background-image: url(..);
+}
 .navLogo, img {
   margin: 2%;
   width: 40px;
