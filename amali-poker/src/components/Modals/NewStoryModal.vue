@@ -12,7 +12,6 @@
           v-for="(item, index) in buttItems"
           :key="index"
           :text="item"
-          :index="index"
         />
       </div>
     </div>
@@ -29,7 +28,6 @@ const buttItems = ref(["Save", "Cancel"]);
 </script>
 
 <style scoped>
-
 * {
   margin: 0;
   padding: 0;
