@@ -2,7 +2,7 @@
   <LayOut>
     <div class="main">
       <div class="navLogo">
-        <img :src="Image" alt="" />
+        <img :src="Logo" alt="" />
       </div>
 
       <p>Dashboard</p>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Image from "../assets/logo.svg";
+import Logo from "../assets/hamburger.png"
 import { useRouter } from "vue-router";
 import LayOut from "../LayOut/LayOut.vue";
 const navigate = useRouter();
@@ -26,16 +26,17 @@ const navigatePage = () => {
 };
 </script>
 
+
 <style scoped>
-* {
-  box-sizing: border-box;
+.main{
+  width: 100%;
+  height: 100vh;
 }
 
 .navLogo,
 img {
   margin: 2%;
   width: 40px;
-  /* height: 32px; */
 }
 
 .main p {
@@ -63,8 +64,11 @@ img {
   height: 290px;
   border-radius: 18px;
   border: 2px solid;
-  font-size: 32px;
   box-shadow: 10px 15px 7px 0px #00000040;
+  background: linear-gradient(247.96deg, #DD5928 -19.99%, #B5461D 121.42%),
+  linear-gradient(0deg, #F2BEAB, #F2BEAB);
+  border: 2px solid #F2BEAB;
+  color: #FFFFFF;
 }
 
 h3 {
@@ -72,8 +76,5 @@ h3 {
   font-family: Poppins;
   font-size: 32px;
   font-weight: 700;
-  line-height: 48px;
-  letter-spacing: 0em;
-  text-align: left;
 }
 </style>
