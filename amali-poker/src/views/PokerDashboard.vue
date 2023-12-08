@@ -1,26 +1,28 @@
 <template>
-  <div class="main">
-    <div class="navLogo">
-      <img :src="Image" alt="" />
-    </div>
+  <LayOut>
+    <div class="main">
+      <div class="navLogo">
+        <img :src="Image" alt="" />
+      </div>
 
-    <p>Dashboard</p>
+      <p>Dashboard</p>
 
-    <div class="sessions">
-      <div class="first" @click="navigatePage"><h3>New Session</h3></div>
-      <div class="second"><h3>View Recent Session</h3></div>
+      <div class="sessions">
+        <div class="first" @click="navigatePage"><h3>New Session</h3></div>
+        <div class="second"><h3>View Recent Session</h3></div>
+      </div>
     </div>
-  </div>
+  </LayOut>
 </template>
 
 <script setup>
 import Image from "../assets/logo.svg";
 import { useRouter } from "vue-router";
-
+import LayOut from "../LayOut/LayOut.vue";
 const navigate = useRouter();
 
 const navigatePage = () => {
-  navigate.push("/newstorymodal");
+  navigate.push("/sessionName");
 };
 </script>
 
