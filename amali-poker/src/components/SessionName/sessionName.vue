@@ -8,47 +8,47 @@
             <div class="right">
                 <div class="container">
                 <div class="flex-container">
-                    <div class="inner">Box 1</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 2</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 3</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 4</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 5</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 6</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 7</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 8</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 9</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 10</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 11</div>
+                    <div class="inner">1</div>
                 </div>
                 <div class="flex-container">
-                    <div class="inner">Box 12</div>
+                    <div class="inner">1</div>
                 </div>
         </div>
             </div>
 
             <div class="left">
                 <div class="session">
-                    <h1>Session Name</h1>
+                    <h1>Story Name</h1>
                 </div>
 
                 <div class="display">
@@ -65,7 +65,7 @@
                                 <h3>invite</h3>
                             </div>
                         </div>
-                        
+                        <hr id="hr1">
                         <div class="players">
                             <ul>
                                 <li>Zion</li>
@@ -76,7 +76,7 @@
                                 <li>Joseph</li>
                             </ul>
                         </div>
-                        
+                        <hr id="hr2">
                         <div class="vote">
                             <button>
                                 <h3>Vote</h3>
@@ -103,7 +103,6 @@
 
 
 <style scoped>
-
 .logo {
     width: Hug (40px);
     height: Hug (32px);
@@ -119,8 +118,6 @@
     display: flex;
     gap: 32px;
     flex-wrap: wrap;
-    /* margin-left: 160px; 
-     margin-top: 90px; */
     transform: translate(160px, 100px);
 }
 .left{
@@ -132,16 +129,17 @@
     background-color: rgba(193, 196, 214, 1);
     color: white;
     border-radius: 8px;
-    border: 1px rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, 1);
 }
 .inner {
     width: 85px;
     height: 112px;
     border: 1px solid rgba(0, 0, 0, 1);
-    transform: translate(13px, 16.5px);
+    transform: translate(11.5px, 16.5px);
     text-align: center;
     line-height: 100px;
-    font-size: x-large;
+    font-size: xxx-large;
+    font-weight: 700;
 }
 .session {
     width: 397px;
@@ -173,7 +171,8 @@ h2 {
     align-items: center;
 }
 .head {
-    background-color: rgba(228, 122, 83, 1);
+    background-color: rgba(228, 122, 83, 1)
+;
     color: white;
     width: 397px;
     height: 65px;
@@ -204,7 +203,13 @@ h2 {
 .players ul li {
     font-style: bold;
     font-size: x-large;
+    font-weight: 700;
     margin-bottom: 24px;
+}
+button {
+    border: none;
+    box-shadow: 2em;
+    padding: 10px;
 }
 .vote button {
     width: 127px;
@@ -228,11 +233,19 @@ h2 {
     padding: 20px;
     text-align: center;
 }
-/* hr {
+
+
+hr {
     width: 267px;
-    transform: translate(65px, 20px);
-    background: rgba(216, 218, 229, 1);
-} */
+    border: 1px solid rgba(216, 218, 229, 1);
+} 
+#hr1 {
+    transform: translate(65px, -25px);
+
+}
+#hr2 {
+    transform: translate(65px, 15px);
+}
 </style>
 
 linear-gradient(0deg, #E47A53, #E47A53),
