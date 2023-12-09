@@ -1,12 +1,15 @@
 <template>
     <div class="main">
-  <Landingpage />
+  <!-- <Landingpage /> -->
+<PokerDashboard />
 
     </div>
 </template>
 
 <script setup>
-import Landingpage from './components/LandingPage';
+// import Landingpage from './components/LandingPage';
+
+import PokerDashboard from './components/PokerDashboard.vue';
 </script>
 
 <style>
