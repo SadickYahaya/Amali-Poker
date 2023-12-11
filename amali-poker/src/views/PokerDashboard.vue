@@ -8,8 +8,13 @@
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="navigatePage"><h3>New Session</h3></div>
+        <div class="first" @click="modalShow"><h3>New Session</h3></div>
         <div class="second"><h3>View Recent Session</h3></div>
+      </div>
+      <div class="story-modal">
+        <div class="modal"><NewSessionModal v-if="modalView" /></div>
+
+        <div class="modal-overlay" v-if="modalView"></div>
       </div>
     </div>
   </LayOut>
@@ -17,13 +22,25 @@
 
 <script setup>
 import Image from "../assets/hamburger.png";
-import { useRouter } from "vue-router";
+// import { useRouter } from "vue-router";
 import LayOut from "../LayOut/LayOut.vue";
-const navigate = useRouter();
+// import NewStoryModal from "../components/Modals/NewStoryModal.vue";
+import { ref } from "vue";
+import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 
-const navigatePage = () => {
-  navigate.push("/sessionName");
+let modalView = ref(false);
+
+const modalShow = () => {
+  modalView.value = true;
 };
+
+// const closeModal = () => {
+//   modalView.value = false;
+// };
+// const navigate = useRouter();
+// const navigatePage = () => {
+//   navigate.push("/sessionName");
+// };
 </script>
 
 <style scoped>
@@ -75,5 +92,18 @@ h3 {
   line-height: 48px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+}
+
+.modal {
+  background-color: white;
 }
 </style>
