@@ -25,16 +25,21 @@
 import { ref } from "vue";
 
 const urlInput = ref(null);
+const isCopyUrlModalVisible = ref(true);
 
 // Function to copy the URL
 const copyToClipboard = () => {
   const inputElement = urlInput.value;
   inputElement.select();
-  document.execCcmmand("copy");
+  document.execCommand("copy");
+  alert("Url copied");
+  isCopyUrlModalVisible.value = false; // This is to hide the modal after the URL has been copied
 };
 
 // function to cancel the URL
-const cancelCopy = () => {};
+const cancelCopy = () => {
+  isCopyUrlModalVisible.value = false;
+};
 </script>
 
 <style scoped>
