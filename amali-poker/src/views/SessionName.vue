@@ -77,13 +77,7 @@ import addImage from "../assets/addImage.png";
 .main {
   display: flex;
 }
-.container {
-  width: 683px;
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  transform: translate(160px, 100px);
-}
+
 .left {
   transform: translate(150px);
 }
@@ -98,17 +92,6 @@ h1 {
   line-height: 78px;
   font-size: 52px;
   font-weight: 700;
-}
-
-.display {
-  width: 397px;
-  height: 596px;
-  /* margin-top: 72px; */
-  /* margin-left: 250px; */
-  border-radius: 8px;
-  background-color: rgba(253, 245, 242, 1);
-  /* margin-bottom: 114px; */
-  transform: translate(250px, 20px);
 }
 
 h2 {
