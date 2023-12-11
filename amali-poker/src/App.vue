@@ -1,9 +1,5 @@
 <template>
+  <div>
+    <router-view />
+  </div>
 </template>
-
-<scipt setup>
-</setup>
-
-
-<style scoped>
-</style>
