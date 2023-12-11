@@ -1,13 +1,9 @@
 <template>
-  <div>
-    <router-view />
-  </div>
 </template>
 
-<script setup>
+<scipt setup>
+</setup>
 
-</script>
 
 <style scoped>
-
 </style>
