@@ -1,12 +1,13 @@
 <template>
-  <div class="main">
-    <!-- <Landingpage /> -->
+  <div>
     <router-view />
   </div>
 </template>
 
 <script setup>
-// import Landingpage from "./components/LandingPage";
+
 </script>
 
-<style></style>
+<style scoped>
+
+</style>

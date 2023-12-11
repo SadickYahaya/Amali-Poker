@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import PokerDashboard from "../views/PokerDashboard.vue";
 import LandingPage from "../views/LandingPage.vue";
-import NewStoryModal from "../components/Modals/NewStoryModal.vue";
+import SessionName from "../views/SessionName.vue";
 const routes = [
   {
     path: "/",
@@ -14,9 +14,9 @@ const routes = [
     component: PokerDashboard,
   },
   {
-    path: "/newstorymodal",
-    name: "NewStoryModal",
-    component: NewStoryModal,
+    path: "/sessionName",
+    name: "SessionName",
+    component: SessionName,
   },
 ];
 
