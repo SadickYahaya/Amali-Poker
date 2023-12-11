@@ -55,7 +55,6 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-
 const navigate = useRouter();
 
 const navigatePage = () => {
