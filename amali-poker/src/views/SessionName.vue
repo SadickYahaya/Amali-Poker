@@ -134,7 +134,7 @@ h2 {
 }
 button {
   border: none;
-  box-shadow: 2em;
+  box-shadow: 3em;
 }
 .vote button {
   width: 127px;
