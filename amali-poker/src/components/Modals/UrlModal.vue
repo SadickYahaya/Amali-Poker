@@ -72,6 +72,7 @@ main {
 h1 {
   margin-bottom: 13px;
   font-size: 30px;
+  color: #474d66;
 }
 
 .main-content {
@@ -83,10 +84,10 @@ h1 {
   /* border: none; */
 }
 
-input {
-  border: none;
-  outline: none;
-}
+/* input {
+  border-radius: 1px solid #d9d9d9;
+  outline: 0;
+} */
 
 .input-box input {
   width: 514px;
@@ -96,6 +97,7 @@ input {
   margin-top: 15px;
   padding-left: 18px;
   padding-right: 18px;
+  border: 1px solid #d9d9d9;
 }
 
 .btn-main {
@@ -114,6 +116,7 @@ button {
   background: #c93900;
   border: none;
   margin-right: 7px;
+  color: #fff;
 }
 
 .save-btn button:hover {
@@ -127,6 +130,7 @@ button {
 .cancil-btn button {
   background: rgb(255, 253, 253);
   border: none;
+  color: #696f8c;
 }
 
 .cancil-btn button:hover {

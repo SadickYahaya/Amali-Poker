@@ -8,12 +8,11 @@
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="modalShow"><h3>New Session</h3></div>
+        <div class="first" @click="showModal"><h3>New Session</h3></div>
         <div class="second"><h3>View Recent Session</h3></div>
       </div>
       <div class="story-modal">
-        <!-- <div class="modal"><TableComponent /></div> -->
-
+        <UrlModal />
         <div class="modal-overlay"></div>
       </div>
     </div>
@@ -22,28 +21,14 @@
 
 <script setup>
 import Image from "../assets/hamburger.png";
-// import { useRouter } from "vue-router";
 import LayOut from "../LayOut/LayOut.vue";
-// import NewStoryModal from "../components/Modals/NewStoryModal.vue";
-// import { ref } from "vue";
-// import UrlModal from "@/components/Modals/UrlModal.vue";
-// import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
-// import TableComponent from "@/components/TableComponent.vue";
-import { useRouter } from "vue-router";
+import { ref } from "vue";
+import UrlModal from "@/components/Modals/UrlModal.vue";
 
-// let modalView = ref(false);
-const navigate = useRouter();
-const modalShow = () => {
-  navigate.push("/sessionName");
+let modalView = ref(false);
+const showModal = () => {
+  modalView.value = true;
 };
-
-// const closeModal = () => {
-//   modalView.value = false;
-// };
-// const navigate = useRouter();
-// const navigatePage = () => {
-//   navigate.push("/sessionName");
-// };
 </script>
 
 <style scoped>
@@ -97,12 +82,12 @@ h3 {
   text-align: left;
 }
 
-/* .modal-overlay {
+.modal-overlay {
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
-} */
+}
 </style>
