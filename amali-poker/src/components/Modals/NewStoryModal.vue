@@ -1,11 +1,12 @@
 <template>
   <div class="modal">
     <div class="modal-content">
-      <span class="material-icons"> close_small </span>
       <h1>Create New Story</h1>
       <div class="textarea">
         <TextAreaComponent />
       </div>
+    </div>
+    <div class="button-container">
       <div class="button">
         <ButtonComponent
           v-for="(item, index) in buttItems"
@@ -23,44 +24,55 @@ import TextAreaComponent from "../TextArea/InputFieldComponent.vue";
 // import CloseIcon from "../../assets/closeIcon.png";
 import { ref } from "vue";
 
-const buttItems = ref(["Upload", "Save"]);
+const buttItems = ref(["Save", "Cancel"]);
 </script>
 
 <style scoped>
-.modal {
-  position: fixed;
-  top: 20%;
-  left: 30%;
-  width: 703px;
-  height: 365px;
-  border: 1px solid black;
-  border-radius: 30px;
-  background-color: rgba(253, 245, 242, 1);
-  border: none;
-}
-
-.button {
-  display: flex;
-  margin: 53px 0 0 90px;
-  gap: 130px;
-}
-h1 {
-  margin-top: 5px;
-  text-align: center;
-  color: rgba(71, 77, 102, 1);
-  font-weight: 700px;
-  font-size: 34px;
-  line-height: 41.15px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
 
-.textarea {
-  margin: 22px 0 0 46px;
+body {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100vh;
 }
 
-span {
-  cursor: pointer;
-  margin-left: 620px;
-  margin-top: 10px;
+.modal {
+  max-width: 703px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin: 180px auto;
+  padding: 10px 16px;
+}
+
+h1 {
+  color: #474d66;
+  font-weight: 700px;
+  font-size: 34px;
+  font-weight: 700px;
+  margin: 24px 0 24px 0;
+}
+
+.button {
+  max-width: 86px;
+  display: flex;
+  justify-content: flex-start;
+  /* margin: 30px 10px 24px 450px; */
+  gap: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px;
+  margin-right: 135px;
+}
+
+.modal-content {
+  margin: 0 31px 0 31px;
 }
 </style>
