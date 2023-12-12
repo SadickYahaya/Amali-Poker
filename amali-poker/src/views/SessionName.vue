@@ -149,7 +149,7 @@ button {
 .vote button h3 {
   font-size: 32px;
   font-weight: bold;
-  transform: translate(0, -8px);
+  transform: translate(0, -7.5px);
 }
 .head h2 {
   padding: 10px;
