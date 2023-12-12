@@ -46,6 +46,13 @@ import SessionName from "../views/SessionName.vue";
 </script>
 
 <style scoped>
+.container {
+  width: 683px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  transform: translate(100px, 100px);
+}
 .inner {
   width: 85px;
   height: 112px;
@@ -56,7 +63,6 @@ import SessionName from "../views/SessionName.vue";
   font-size: xxx-large;
   font-weight: 700;
 }
-
 .flex-container {
   width: 111px;
   height: 145px;

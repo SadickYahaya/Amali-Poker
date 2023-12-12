@@ -20,10 +20,10 @@
 </template>
 
 <script setup>
-import Image from "../assets/hamburger.png";
-import LayOut from "../LayOut/LayOut.vue";
 import { ref } from "vue";
-import UrlModal from "@/components/Modals/UrlModal.vue";
+
+
+
 
 let modalView = ref(false);
 const showModal = () => {

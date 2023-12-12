@@ -93,7 +93,6 @@ h1 {
   font-size: 52px;
   font-weight: 700;
 }
-
 h2 {
   justify-content: center;
   align-items: center;

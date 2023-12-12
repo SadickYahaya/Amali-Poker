@@ -3,7 +3,7 @@
     <button
       :style="[
         index === 1 && {
-          backgroundColor: '#fff',
+          backgroundColor: '#FFF',
           color: '#696F8C',
           border: '1px solid var(--neutral-n-400, #D8DAE5)',
           width: '95px',
