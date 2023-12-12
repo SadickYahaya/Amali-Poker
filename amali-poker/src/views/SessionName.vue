@@ -76,8 +76,8 @@ import addImage from "../assets/addImage.png";
   transform: translate(70px, 10px);
 }
 .logo {
-  margin-top: 20px;
-  margin-left: 50px;
+  margin-top: 41px;
+  margin-left: 70px;
 }
 .main {
   display: flex;
@@ -86,7 +86,7 @@ import addImage from "../assets/addImage.png";
 .session {
   width: 397px;
   text-align: center;
-  transform: translate(160px, -70px);
+  transform: translate(380px, -10px);
 }
 h1 {
   line-height: 78px;
@@ -95,10 +95,10 @@ h1 {
 }
 .display {
   width: 397px;
-  height: 506px;
+  height: 536px;
   border-radius: 8px;
   background-color: rgba(253, 245, 242, 1);
-  transform: translate(170px, -70px);
+  transform: translate(380px, 20px);
 }
 h2 {
   justify-content: center;

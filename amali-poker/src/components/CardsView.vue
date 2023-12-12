@@ -51,6 +51,7 @@ import SessionName from "../views/SessionName.vue";
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
+  transform: translate(100px, 100px);
 }
 .inner {
   width: 85px;
