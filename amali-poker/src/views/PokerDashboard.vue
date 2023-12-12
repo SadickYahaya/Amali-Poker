@@ -12,9 +12,9 @@
         <div class="second"><h3>View Recent Session</h3></div>
       </div>
       <div class="story-modal">
-        <div class="modal"><UrlModal v-if="modalView" /></div>
+        <!-- <div class="modal"><TableComponent /></div> -->
 
-        <div class="modal-overlay" v-if="modalView"></div>
+        <div class="modal-overlay"></div>
       </div>
     </div>
   </LayOut>
@@ -25,14 +25,16 @@ import Image from "../assets/hamburger.png";
 // import { useRouter } from "vue-router";
 import LayOut from "../LayOut/LayOut.vue";
 // import NewStoryModal from "../components/Modals/NewStoryModal.vue";
-import { ref } from "vue";
-import UrlModal from "@/components/Modals/UrlModal.vue";
+// import { ref } from "vue";
+// import UrlModal from "@/components/Modals/UrlModal.vue";
 // import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+// import TableComponent from "@/components/TableComponent.vue";
+import { useRouter } from "vue-router";
 
-let modalView = ref(false);
-
+// let modalView = ref(false);
+const navigate = useRouter();
 const modalShow = () => {
-  modalView.value = true;
+  navigate.push("/sessionName");
 };
 
 // const closeModal = () => {
@@ -95,16 +97,12 @@ h3 {
   text-align: left;
 }
 
-.modal-overlay {
+/* .modal-overlay {
   width: 100%;
   height: 100vh;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
-}
-
-.modal {
-  background-color: white;
-}
+} */
 </style>
