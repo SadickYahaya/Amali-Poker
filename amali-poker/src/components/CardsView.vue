@@ -71,4 +71,21 @@ import SessionName from "../views/SessionName.vue";
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 1);
 }
+
+.session {
+  width: 397px;
+  text-align: center;
+  transform: translate(240px, -20px);
+}
+
+.inner {
+  width: 85px;
+  height: 112px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  transform: translate(11.5px, 16.5px);
+  text-align: center;
+  line-height: 100px;
+  font-size: xxx-large;
+  font-weight: 700;
+}
 </style>
