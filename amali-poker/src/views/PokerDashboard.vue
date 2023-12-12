@@ -12,8 +12,8 @@
         <div class="second"><h3>View Recent Session</h3></div>
       </div>
       <div class="story-modal">
-        <UrlModal />
-        <div class="modal-overlay"></div>
+        <NewSessionModal v-if="modalView" @modal="closeModal" />
+        <div class="modal-overlay" v-if="modalView"></div>
       </div>
     </div>
   </LayOut>
@@ -21,13 +21,17 @@
 
 <script setup>
 import { ref } from "vue";
-
-
-
+import LayOut from "@/LayOut/LayOut.vue";
+import Image from "../assets/hamburger.png";
+import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 
 let modalView = ref(false);
 const showModal = () => {
   modalView.value = true;
+};
+
+const closeModal = () => {
+  modalView.value = false;
 };
 </script>
 
@@ -59,6 +63,7 @@ const showModal = () => {
 
 img {
   margin: 42px;
+  width: 30px;
 }
 
 .first,
