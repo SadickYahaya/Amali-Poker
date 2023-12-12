@@ -80,11 +80,12 @@ h1 {
   border-radius: 9px;
   padding: 40px;
   background: rgb(250, 243, 240);
-  border: none;
+  /* border: none; */
 }
 
-.input-box {
-  border: 1px;
+input {
+  border: none;
+  outline: none;
 }
 
 .input-box input {
@@ -110,7 +111,7 @@ button {
 }
 
 .save-btn button {
-  background: #ff4800;
+  background: #c93900;
   border: none;
   margin-right: 7px;
 }
