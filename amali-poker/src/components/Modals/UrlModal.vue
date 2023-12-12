@@ -64,7 +64,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 90vh; */
   background-color: white;
   border-radius: 5px;
 }
@@ -81,13 +80,7 @@ h1 {
   border-radius: 9px;
   padding: 40px;
   background: rgb(250, 243, 240);
-  /* border: none; */
 }
-
-/* input {
-  border-radius: 1px solid #d9d9d9;
-  outline: 0;
-} */
 
 .input-box input {
   width: 514px;
