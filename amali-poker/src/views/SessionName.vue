@@ -6,44 +6,7 @@
 
     <div class="main">
       <div class="right">
-        <div class="container">
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-          <div class="flex-container">
-            <div class="inner">1</div>
-          </div>
-        </div>
+        <slot></slot>
       </div>
 
       <div class="left">
@@ -114,35 +77,11 @@ import addImage from "../assets/addImage.png";
 .main {
   display: flex;
 }
-.container {
-  width: 683px;
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  transform: translate(160px, 100px);
-}
+
 .left {
   transform: translate(150px);
 }
-.flex-container {
-  width: 111px;
-  height: 145px;
-  background-color: rgba(193, 196, 214, 1);
-  color: white;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 1);
-}
 
-.inner {
-  width: 85px;
-  height: 112px;
-  border: 1px solid rgba(0, 0, 0, 1);
-  transform: translate(11.5px, 16.5px);
-  text-align: center;
-  line-height: 100px;
-  font-size: xxx-large;
-  font-weight: 700;
-}
 .session {
   width: 397px;
   text-align: center;
@@ -153,17 +92,6 @@ h1 {
   line-height: 78px;
   font-size: 52px;
   font-weight: 700;
-}
-
-.display {
-  width: 397px;
-  height: 596px;
-  /* margin-top: 72px; */
-  /* margin-left: 250px; */
-  border-radius: 8px;
-  background-color: rgba(253, 245, 242, 1);
-  /* margin-bottom: 114px; */
-  transform: translate(250px, 20px);
 }
 
 h2 {

@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import PokerDashboard from "../views/PokerDashboard.vue";
 import LandingPage from "../views/LandingPage.vue";
-import SessionName from "../views/SessionName.vue";
+import CardsView from "../components/CardsView.vue";
 const routes = [
   {
     path: "/",
@@ -16,7 +16,7 @@ const routes = [
   {
     path: "/sessionName",
     name: "SessionName",
-    component: SessionName,
+    component: CardsView,
   },
 ];
 

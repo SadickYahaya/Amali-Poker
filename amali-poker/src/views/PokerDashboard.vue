@@ -2,41 +2,51 @@
   <LayOut>
     <div class="main">
       <div class="navLogo">
-        <img :src="Logo" alt="" />
+        <img :src="Image" alt="" />
       </div>
 
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="navigatePage"><h3>New Session</h3></div>
+        <div class="first" @click="modalShow"><h3>New Session</h3></div>
         <div class="second"><h3>View Recent Session</h3></div>
+      </div>
+      <div class="story-modal">
+        <div class="modal"><UrlModal v-if="modalView" /></div>
+
+        <div class="modal-overlay" v-if="modalView"></div>
       </div>
     </div>
   </LayOut>
 </template>
 
 <script setup>
-import Logo from "../assets/hamburger.png"
-import { useRouter } from "vue-router";
+import Image from "../assets/hamburger.png";
+// import { useRouter } from "vue-router";
 import LayOut from "../LayOut/LayOut.vue";
-const navigate = useRouter();
+// import NewStoryModal from "../components/Modals/NewStoryModal.vue";
+import { ref } from "vue";
+import UrlModal from "@/components/Modals/UrlModal.vue";
+// import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 
-const navigatePage = () => {
-  navigate.push("/sessionName");
+let modalView = ref(false);
+
+const modalShow = () => {
+  modalView.value = true;
 };
+
+// const closeModal = () => {
+//   modalView.value = false;
+// };
+// const navigate = useRouter();
+// const navigatePage = () => {
+//   navigate.push("/sessionName");
+// };
 </script>
 
-
 <style scoped>
-.main{
-  width: 100%;
-  height: 100vh;
-}
-
-.navLogo,
-img {
-  margin: 21%;
-  width: 40px;
+* {
+  box-sizing: border-box;
 }
 
 .main p {
@@ -49,6 +59,8 @@ img {
   position: absolute;
   top: 5%;
   left: 70%;
+  color: #474d66;
+  margin: 22px;
 }
 
 .sessions {
@@ -58,23 +70,41 @@ img {
   margin-top: 10%;
 }
 
+img {
+  margin: 42px;
+}
+
 .first,
 .second {
   width: 32%;
   height: 290px;
-  border-radius: 18px;
-  border: 2px solid;
+  border-radius: 16px;
+  font-size: 32px;
   box-shadow: 10px 15px 7px 0px #00000040;
-  background: linear-gradient(247.96deg, #DD5928 -19.99%, #B5461D 121.42%),
-  linear-gradient(0deg, #F2BEAB, #F2BEAB);
-  border: 2px solid #F2BEAB;
-  color: #FFFFFF;
+  background: linear-gradient(248deg, #dd5928 -19.99%, #b5461d 121.42%);
+  color: #fff;
+  padding: 25px;
 }
 
 h3 {
   margin-left: 4%;
-  font-family: Poppins;
   font-size: 32px;
   font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+}
+
+.modal {
+  background-color: white;
 }
 </style>

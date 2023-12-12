@@ -12,6 +12,7 @@
           v-for="(item, index) in buttItems"
           :key="index"
           :text="item"
+          :index="index"
         />
       </div>
     </div>
@@ -28,23 +29,16 @@ const buttItems = ref(["Save", "Cancel"]);
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
-}
-
-body {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
 .modal {
-  max-width: 703px;
+  position: fixed;
+  top: 0;
+  left: 25%;
+  width: 703px;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #fff;
   margin: 180px auto;
   padding: 10px 16px;
+  z-index: 999;
 }
 
 h1 {
@@ -67,7 +61,7 @@ h1 {
   display: flex;
   justify-content: flex-end;
   margin: 24px;
-  margin-right: 135px;
+  margin-right: 136px;
 }
 
 .modal-content {

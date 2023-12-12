@@ -21,25 +21,26 @@
   </main>
 </template>
 
-
-
 <script setup>
 import { ref } from "vue";
 
 const urlInput = ref(null);
+const isCopyUrlModalVisible = ref(true);
 
 // Function to copy the URL
 const copyToClipboard = () => {
   const inputElement = urlInput.value;
   inputElement.select();
-  document.execCcmmand("copy");
+  document.execCommand("copy");
+  alert("Url copied");
+  isCopyUrlModalVisible.value = false; // This is to hide the modal after the URL has been copied
 };
 
 // function to cancel the URL
-const cancelCopy = () => {};
+const cancelCopy = () => {
+  isCopyUrlModalVisible.value = false;
+};
 </script>
-
-
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
@@ -56,42 +57,60 @@ body {
 }
 
 main {
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  /* height: 90vh; */
+  background-color: white;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-bottom: 13px;
+  font-size: 30px;
 }
 
 .main-content {
   width: 600px;
-  height: 265px;
-  border-radius: 20px;
+  height: 255px;
+  border-radius: 9px;
   padding: 40px;
-  background: rgb(255, 245, 241);
+  background: rgb(250, 243, 240);
   border: none;
+}
+
+.input-box {
+  border: 1px;
 }
 
 .input-box input {
   width: 514px;
   height: 40px;
-  border-radius: 8px;
-  border: none;
+  border-radius: 3px;
+  font-size: 17px;
+  margin-top: 15px;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .btn-main {
   display: flex;
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 170px;
 }
 
 button {
-  border-radius: 10px;
-  height: 30px;
-  width: 60px;
+  border-radius: 5px;
+  height: 35px;
+  width: 65px;
 }
 
 .save-btn button {
-  background: rgb(255, 38, 0);
+  background: #ff4800;
   border: none;
   margin-right: 7px;
 }
@@ -101,7 +120,7 @@ button {
 }
 
 .save-btn {
-  margin-left: 230px;
+  margin-left: 210px;
 }
 
 .cancil-btn button {
@@ -110,85 +129,6 @@ button {
 }
 
 .cancil-btn button:hover {
-  background: orange;
+  background: rgb(248, 248, 248);
 }
-
-/* @media (max-width: 600px) {
-  body {
-    font-weight: 700;
-    font-family: "poppins";
-    background-size: cover;
-    background-position: center;
-  }
-
-  main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-  }
-
-  .main-content {
-    width: 450px;
-    height: 264px;
-    border-radius: 20px;
-    padding: 40px;
-    background: rgb(255, 243, 239);
-    border: none;
-  }
-
-  .single-input {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    margin-left: 3px;
-  }
-
-  .single-input h1 {
-    margin-left: 80px;
-  }
-
-  .single-input input {
-    width: 370px;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    margin-right: 30px;
-  }
-
-  .btn-main {
-    display: flex;
-    margin-top: 40px;
-    margin-left: 80px;
-  }
-
-  button {
-    border-radius: 10px;
-    height: 30px;
-    width: 60px;
-  }
-
-  .save-btn button {
-    background: rgb(255, 38, 0);
-    border: none;
-    margin-right: 7px;
-  }
-
-  .save-btn button:hover {
-    background: aliceblue;
-  }
-
-  .save-btn {
-    margin-left: 190px;
-  }
-
-  .cancil-btn button {
-    background: rgb(255, 253, 253);
-    border: none;
-  }
-
-  .cancil-btn button:hover {
-    background: orange;
-  }
-}
-</style> */
+</style>
