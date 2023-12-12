@@ -112,10 +112,6 @@ button {
   color: #fff;
 }
 
-.save-btn button:hover {
-  background: aliceblue;
-}
-
 .save-btn {
   margin-left: 210px;
 }
@@ -124,9 +120,5 @@ button {
   background: rgb(255, 253, 253);
   border: none;
   color: #696f8c;
-}
-
-.cancil-btn button:hover {
-  background: rgb(248, 248, 248);
 }
 </style>

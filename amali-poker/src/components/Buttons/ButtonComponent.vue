@@ -17,16 +17,17 @@
           textAlign: 'center',
         },
       ]"
+      @click="closeModal()"
     >
       {{ text }}
     </button>
   </div>
 </template>
-
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, defineEmits } from "vue";
+const emit = defineEmits(["toggle"]);
 
-defineProps({
+const props = defineProps({
   text: {
     type: String,
   },
@@ -34,6 +35,12 @@ defineProps({
     type: Number,
   },
 });
+
+const closeModal = () => {
+  if (props.index === 0) {
+    emit("toggle");
+  }
+};
 </script>
 
 <style scoped>
@@ -44,6 +51,7 @@ button {
   border: none;
   width: 80px;
   height: 6vh;
+  cursor: pointer;
 
   box-shadow: 0px 4px 10px -5px rgba(221, 89, 40, 0.3);
   letter-spacing: 1px;
