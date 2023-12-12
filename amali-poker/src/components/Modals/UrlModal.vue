@@ -64,7 +64,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 90vh; */
   background-color: white;
   border-radius: 5px;
 }
@@ -72,6 +71,7 @@ main {
 h1 {
   margin-bottom: 13px;
   font-size: 30px;
+  color: #474d66;
 }
 
 .main-content {
@@ -80,11 +80,6 @@ h1 {
   border-radius: 9px;
   padding: 40px;
   background: rgb(250, 243, 240);
-  border: none;
-}
-
-.input-box {
-  border: 1px;
 }
 
 .input-box input {
@@ -95,6 +90,7 @@ h1 {
   margin-top: 15px;
   padding-left: 18px;
   padding-right: 18px;
+  border: 1px solid #d9d9d9;
 }
 
 .btn-main {
@@ -110,13 +106,10 @@ button {
 }
 
 .save-btn button {
-  background: #ff4800;
+  background: #c93900;
   border: none;
   margin-right: 7px;
-}
-
-.save-btn button:hover {
-  background: aliceblue;
+  color: #fff;
 }
 
 .save-btn {
@@ -126,9 +119,6 @@ button {
 .cancil-btn button {
   background: rgb(255, 253, 253);
   border: none;
-}
-
-.cancil-btn button:hover {
-  background: rgb(248, 248, 248);
+  color: #696f8c;
 }
 </style>

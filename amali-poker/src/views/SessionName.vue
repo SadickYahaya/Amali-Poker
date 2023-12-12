@@ -3,17 +3,14 @@
     <div class="logo">
       <img :src="Logo" alt="" />
     </div>
-
     <div class="main">
       <div class="right">
         <slot></slot>
       </div>
-
       <div class="left">
         <div class="session">
           <h1>Story Name</h1>
         </div>
-
         <div class="display">
           <div class="head">
             <h2>1 story created</h2>
@@ -49,51 +46,49 @@
         </div>
       </div>
     </div>
-    <!-- <NewStoryModal /> -->
   </div>
 </template>
-
 <script setup>
-// import NewStoryModal from "../components/Modals/NewStoryModal.vue";
-// import { ref } from "vue";
 import Logo from "../assets/hamburger.png";
 import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
-
-// let showModal = ref(true);
 </script>
-
 <style scoped>
-/* .main-container {
-  background-image: url(../../assets/Group\ 633208.svg);
-} */
+.main-container {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.left {
+  transform: translate(70px, 10px);
+}
 .logo {
-  width: Hug (40px);
-  height: Hug (32px);
-  margin-top: 41px;
-  margin-left: 70px;
-  gap: 4px;
+  margin-top: 31px;
+  margin-left: 50px;
 }
 .main {
   display: flex;
 }
-
-.left {
-  transform: translate(150px);
-}
-
 .session {
   width: 397px;
   text-align: center;
-  transform: translate(240px, -20px);
+  transform: translate(120px, -70px);
 }
-
 h1 {
   line-height: 78px;
   font-size: 52px;
   font-weight: 700;
 }
-
+.display {
+  width: 397px;
+  height: 506px;
+  border-radius: 8px;
+  background-color: rgba(253, 245, 242, 1);
+  transform: translate(120px, -60px);
+}
 h2 {
   justify-content: center;
   align-items: center;
@@ -101,40 +96,34 @@ h2 {
 .head {
   background-color: rgba(228, 122, 83, 1);
   color: white;
-  width: 397px;
   height: 65px;
-  top: 273px;
-  left: 954px;
   border-radius: 8px;
 }
 .top {
-  padding: 30px;
+  padding: 20px;
   display: flex;
 }
 .invite {
   display: flex;
-  transform: translate(150px, -10px);
+  transform: translate(140px, -10px);
   gap: 5px;
 }
 .invite h3 {
   transform: translate(0, 5px);
 }
 .players {
-  width: Hug (121px);
-  height: Fixed (281px);
-  transform: translate(80px);
+  margin-left: 50px;
   border-radius: 8px;
 }
 .players ul li {
   font-style: bold;
   font-size: x-large;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 button {
   border: none;
-  box-shadow: 2em;
-  padding: 10px;
+  box-shadow: 3em;
 }
 .vote button {
   width: 127px;
@@ -142,31 +131,27 @@ button {
   color: white;
   background-color: rgba(228, 122, 83, 1);
   border-radius: 8px;
-  transform: translate(135px, 45px);
+  transform: translate(135px, 15px);
   padding: 8px 16px 8px 16px;
   text-align: center;
 }
-
 .vote button h3 {
-  width: 95px;
-  height: 24px;
   font-size: 32px;
   font-weight: bold;
   transform: translate(0, -8px);
 }
 .head h2 {
-  padding: 20px;
+  padding: 10px;
   text-align: center;
 }
-
 hr {
   width: 267px;
   border: 1px solid rgba(216, 218, 229, 1);
 }
 #hr1 {
-  transform: translate(65px, -25px);
+  transform: translate(65px, -15px);
 }
 #hr2 {
-  transform: translate(65px, 15px);
+  transform: translate(65px, -5px);
 }
 </style>
