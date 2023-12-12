@@ -12,7 +12,7 @@
         <div class="second"><h3>View Recent Session</h3></div>
       </div>
       <div class="story-modal">
-        <div class="modal"><NewSessionModal v-if="modalView" /></div>
+        <div class="modal"><UrlModal v-if="modalView" /></div>
 
         <div class="modal-overlay" v-if="modalView"></div>
       </div>
@@ -26,7 +26,8 @@ import Image from "../assets/hamburger.png";
 import LayOut from "../LayOut/LayOut.vue";
 // import NewStoryModal from "../components/Modals/NewStoryModal.vue";
 import { ref } from "vue";
-import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+import UrlModal from "@/components/Modals/UrlModal.vue";
+// import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 
 let modalView = ref(false);
 
