@@ -107,8 +107,8 @@
     background-image: url(../../assets/Group\ 633208.svg);
 }
 .logo {
-    width: Hug (40px);
-    height: Hug (32px);
+    width: 40px;
+    height: 32px);
     margin-top: 41px;
     margin-left: 70px;
     gap: 4px;
