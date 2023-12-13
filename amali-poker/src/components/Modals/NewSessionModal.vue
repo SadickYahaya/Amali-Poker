@@ -3,184 +3,225 @@
     <h3>Create a New Session</h3>
 
     <!--Details session-->
-    <div class="sub-container">
-      <div class="flex-box">
-        <input type="text" id="input-box" placeholder=" Enter session name" />
 
-        <div>
-          <select id="list">
-            <option value="Fibonacci">Fibonacci</option>
-            <option value=" scrum">scrum</option>
-            <option value=" playing card">playing card</option>
-            <option value="sequential">sequential</option>
-            <option value=" T-shirt">T-shirt</option>
-          </select>
+    <div class="flex-box">
+      <input
+        v-model="sessionName"
+        type="text"
+        placeholder="Enter session name"
+        class="session-name"
+        :style="[error && { border: '1px solid red' }]"
+      />
+      <div class="custom-select">
+        <div class="selected-option" @click="toggleDropdown">
+          {{ selectedOption || "Fibonacci" }}
+          <img src="../../assets/Polygon 2.svg" alt="" />
+        </div>
+        <div class="options" v-if="showDropdown">
+          <div
+            v-for="option in options"
+            :key="option"
+            @click="selectOption(option)"
+          >
+            <p>{{ option }}</p>
+          </div>
         </div>
       </div>
-      <!-- second dropdown-->
-
-      <select id="second-list">
-        <option value="Customize Card values">Customize Card values</option>
-        <option value=" ">Use all cards</option>
-        <option value=" playing card">XS</option>
-        <option value="sequential">S</option>
-        <option value=" T-shirt">M</option>
-        <option value=" T-shirt">L</option>
-        <option value=" T-shirt">XL</option>
-        <option value=" T-shirt">XXL</option>
-      </select>
-
-      <div class="maim-ckbox">
-        <label class="check-container">
-          <input type="checkbox" id="ck-bx" />
-          <span class="checkmark"
-            >Do you want to enter stories in this room?</span
-          >
-        </label>
-        <br />
-        <label class="check-container">
-          <input type="checkbox" id="ck-bx" />
-          <span class="checkmark"
-            >Do you want to enter stories in this room?</span
-          >
-        </label>
-        <br />
-        <label class="check-container">
-          <input type="checkbox" id="ck-bx" />
-          <span class="checkmark"
-            >Do you want to enter stories in this room?</span
-          > </label
-        ><br />
-        <label class="check-container">
-          <input type="checkbox" id="ck-bx" />
-          <span class="checkmark"
-            >Do you want to enter stories in this room?</span
-          >
-        </label>
+    </div>
+    <div class="card-select">
+      <div class="card-option" @click="toggleAccord">
+        {{ "Custom Card values" }}
+        <img src="../../assets/Polygon 2.svg" alt="" />
       </div>
-
-      <div class="btn">
-        <button class="crt-btn" @click="navigatePage">create</button>
-        <button class="cancel-btn" @click="$emit('modal')">cancel</button>
+      <div class="accord" v-if="accord">
+        <div class="option" v-for="item in accordItem" :key="item">
+          <div class="text">
+            <input type="checkbox" class="checkbox" />
+            <label for="item">{{ item }}</label>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div v-for="item in storyTexts" :key="item" class="stories">
+      <div class="story">
+        <input type="checkbox" class="checkbox" />
+        <p>{{ item }}</p>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button class="crt-btn" @click="navigatePage">Create</button>
+      <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
+    </div>
+    <div>
+      <SessionName v-if="showSessionname" />
+    </div>
   </div>
-  <!-- <div><NewStoryModal v-if="modalView" /></div> -->
 </template>
 
 <script setup>
+import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import SessionName from "../../views/SessionName.vue";
 
+let showSessionname = ref(false);
+const sessionName = ref("");
+let error = ref(false);
+const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
+const storyTexts = ref([
+  "Do you want to enter stories in this room",
+  "Request confirmation when skipping sotries?",
+  "Do you want to reveal individual votes when voting completed?",
+]);
+let accord = ref(false);
+
+const toggleAccord = () => {
+  accord.value = !accord.value;
+};
 const navigate = useRouter();
 const navigatePage = () => {
-  navigate.push("/sessionName");
+  if (sessionName.value === "") {
+    error.value = !error.value;
+  } else {
+    navigate.push("/sessionName");
+  }
 };
+
+const options = ref([
+  "Fibonacci",
+  "Scrum",
+  "Sequential",
+  "Playing Cards",
+  "T-Shirts",
+]);
+let showDropdown = ref(false);
+let selectedOption = ref("");
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
+
+const selectOption = (option) => {
+  selectedOption.value = option;
+  showDropdown.value = false;
+};
+watch(sessionName, (value) => {
+  localStorage.setItem("sessionName", value);
+});
 </script>
 
 <style scoped>
 h3 {
   color: #474d66;
-  margin: 24px auto;
-  padding: 2px;
-  line-height: 29.05px;
-  width: 256px;
   font-size: 23px;
   text-align: center;
   text-decoration: 1.4px underline;
   font-family: "Poppins", sans-serif;
+  margin-top: 10px;
 }
 
 .main-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  bottom: 50%;
   left: 50%;
   background-color: #fdf5f2;
-  width: 623px;
+  max-width: 623px;
   height: 449px;
   border-radius: 8px;
   transform: translate(-50%, -50%);
   z-index: 999;
 }
-.sub-container {
-  width: 575px;
-  height: 352px;
-  margin: 24px auto;
-  border-radius: 8px;
-}
 
 .flex-box {
   display: flex;
   align-items: center;
+  gap: 24px;
+  width: 575px;
+  margin: 24px;
+}
+.selected-option,
+.card-option,
+input {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  display: flex;
   justify-content: space-between;
 }
-#input-box {
-  padding: 16px;
-  width: 420px;
-  height: 51px;
-  border-radius: 8px;
-  border: 1px solid #d9d9d9;
-  background-color: #fdf5f2;
-  font-family: "Poppins", sans-serif;
+
+.selected-option {
+  width: 185px;
 }
 
-#second-list {
-  width: 575px;
-  height: 51px;
-  padding: 16px;
-  border: 1px solid #d9d9d9;
-  margin: 16px 0px;
-  border-radius: 8px;
+.selected-option:focus {
+  border-width: 0;
+  border: none;
+}
+
+.session-name {
   background-color: #fdf5f2;
-  font-family: "Poppins", sans-serif;
-  outline: 0;
-}
-#list {
-  width: 140px;
-  height: 51px;
-  border-radius: 8px;
-  padding: 16px;
-  border: 1px solid #d9d9d9;
-  font-family: "Poppins", sans-serif;
-  background-color: #fdf5f2;
-  outline: 0;
-}
-.maim-ckbox {
-  width: 383px;
-  height: 150px;
-}
-.check-container {
-  gap: 10px;
-}
-.checkmark {
-  margin: 0em 5px;
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-  padding: 30px 0px;
+  width: 366px;
+  font-size: large;
 }
 .btn {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-around;
 }
-.crt-btn {
+
+button {
+  cursor: pointer;
   background-color: #dd5928;
   color: #fff;
   padding: 8px 16px;
   width: 186px;
-  height: 48px;
-  text-decoration-line: underline;
+  font-size: 16px;
   border: none;
   border-radius: 8px;
+  height: 48px;
+  margin: 20px;
 }
-.cancel-btn {
-  background-color: #dd5928;
-  color: #fff;
-  padding: 8px 16px;
-  width: 186px;
-  height: 48px;
-  text-decoration-line: underline;
-  border: none;
-  border-radius: 8px;
+
+.card-option {
+  width: 575px;
+  margin: 24px;
+}
+
+.options {
+  position: fixed;
+  z-index: 999;
+  background-color: white;
+  width: 185px;
+  padding: 10px;
+}
+
+.options:hover {
+  cursor: default;
+}
+
+.accord {
+  position: fixed;
+  top: 40%;
+  z-index: 999;
+  width: 575px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 24px;
+  gap: 20px;
+}
+
+.text {
+  display: flex;
+  margin: 10px;
+}
+
+.checkbox {
+  width: 30px;
+}
+
+.story {
+  display: flex;
+  margin: 24px;
 }
 </style>
