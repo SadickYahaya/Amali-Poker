@@ -12,6 +12,8 @@
         class="session-name"
         :style="[error && { border: '1px solid red' }]"
       />
+
+      <!-- Customised Select Option with Dropdowns -->
       <div class="custom-select">
         <div class="selected-option" @click="toggleDropdown">
           {{ selectedOption || "Fibonacci" }}
@@ -54,18 +56,23 @@
       <button class="crt-btn" @click="navigatePage">Create</button>
       <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
     </div>
-    <div>
-      <SessionName v-if="showSessionname" />
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import SessionName from "../../views/SessionName.vue";
 
-let showSessionname = ref(false);
+// const fibonacciSequence = ref([]);
+// const calculateFibonacci = (count) => {
+//   let fibonacci = [0, 1];
+//   for (let num = 2; num <= count; num++) {
+//     fibonacci[num] = fibonacci[num - 1] + fibonacci[num - 2];
+//   }
+//   fibonacciSequence.value = fibonacci[num];
+// };
+
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
@@ -104,6 +111,7 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option;
+  console.log(option);
   showDropdown.value = false;
 };
 watch(sessionName, (value) => {

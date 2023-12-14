@@ -56,7 +56,7 @@ const navigatePage = () => {
   letter-spacing: 0em;
   text-align: center;
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 70%;
   color: #474d66;
   margin: 22px;
@@ -65,7 +65,7 @@ const navigatePage = () => {
 .sessions {
   display: flex;
   justify-content: center;
-  gap: 3%;
+  gap: 113px;
   margin-top: 10%;
 }
 
@@ -84,10 +84,10 @@ img {
   background: linear-gradient(248deg, #dd5928 -19.99%, #b5461d 121.42%);
   color: #fff;
   padding: 25px;
+  cursor: pointer;
 }
 
 h3 {
-  margin-left: 4%;
   font-size: 32px;
   font-weight: 700;
   line-height: 48px;
