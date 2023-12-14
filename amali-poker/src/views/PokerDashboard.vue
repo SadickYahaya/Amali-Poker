@@ -9,7 +9,9 @@
 
       <div class="sessions">
         <div class="first" @click="showModal"><h3>New Session</h3></div>
-        <div class="second"><h3>View Recent Session</h3></div>
+        <div class="second" @click="navigatePage">
+          <h3>View Recent Session</h3>
+        </div>
       </div>
       <div class="story-modal">
         <NewSessionModal v-if="modalView" @modal="closeModal" />
@@ -24,6 +26,7 @@ import { ref } from "vue";
 import LayOut from "@/LayOut/LayOut.vue";
 import Image from "../assets/hamburger.png";
 import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+import { useRouter } from "vue-router";
 
 let modalView = ref(false);
 const showModal = () => {
@@ -32,6 +35,11 @@ const showModal = () => {
 
 const closeModal = () => {
   modalView.value = false;
+};
+
+const navigate = useRouter();
+const navigatePage = () => {
+  navigate.push("/recentsession");
 };
 </script>
 

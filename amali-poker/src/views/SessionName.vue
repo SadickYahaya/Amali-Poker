@@ -9,7 +9,7 @@
       </div>
       <div class="left">
         <div class="session">
-          <h1>Story Name</h1>
+          <h1>{{ storedItem }}</h1>
         </div>
         <div class="display">
           <div class="head">
@@ -39,7 +39,7 @@
             <hr id="hr2" />
             <div class="vote">
               <button>
-                <h3>Vote</h3>
+                <h3 @click="navigatePage">Vote</h3>
               </button>
             </div>
           </div>
@@ -52,6 +52,20 @@
 import Logo from "../assets/hamburger.png";
 import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
+import { useRouter } from "vue-router";
+// import { defineProps } from "vue";
+
+// const props = defineProps({
+//   sessionStory: {
+//     type: String,
+//   },
+// });
+
+const storedItem = localStorage.getItem("sessionName");
+let navigate = useRouter();
+const navigatePage = () => {
+  navigate.push("/votingsession");
+};
 </script>
 <style scoped>
 .main-container {
