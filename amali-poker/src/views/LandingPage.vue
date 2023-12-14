@@ -29,7 +29,7 @@
     <div class="icons-wrapper">
       <div class="icons">
         <div class="icon-section">
-          <img src="../assets/icon1.svg" alt="" />
+          <img src="../assets/Vector.png" alt="" />
           <p>
             Sprint Plan <br />
             Effortlessly

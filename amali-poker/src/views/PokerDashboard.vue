@@ -8,12 +8,13 @@
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="modalShow"><h3>New Session</h3></div>
-        <div class="second"><h3>View Recent Session</h3></div>
+        <div class="first" @click="showModal"><h3>New Session</h3></div>
+        <div class="second" @click="navigatePage">
+          <h3>View Recent Session</h3>
+        </div>
       </div>
       <div class="story-modal">
-        <div class="modal"><UrlModal v-if="modalView" /></div>
-
+        <NewSessionModal v-if="modalView" @modal="closeModal" />
         <div class="modal-overlay" v-if="modalView"></div>
       </div>
     </div>
@@ -21,27 +22,25 @@
 </template>
 
 <script setup>
-import Image from "../assets/hamburger.png";
-// import { useRouter } from "vue-router";
-import LayOut from "../LayOut/LayOut.vue";
-// import NewStoryModal from "../components/Modals/NewStoryModal.vue";
 import { ref } from "vue";
-import UrlModal from "@/components/Modals/UrlModal.vue";
-// import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+import LayOut from "@/LayOut/LayOut.vue";
+import Image from "../assets/hamburger.png";
+import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+import { useRouter } from "vue-router";
 
 let modalView = ref(false);
-
-const modalShow = () => {
+const showModal = () => {
   modalView.value = true;
 };
 
-// const closeModal = () => {
-//   modalView.value = false;
-// };
-// const navigate = useRouter();
-// const navigatePage = () => {
-//   navigate.push("/sessionName");
-// };
+const closeModal = () => {
+  modalView.value = false;
+};
+
+const navigate = useRouter();
+const navigatePage = () => {
+  navigate.push("/recentsession");
+};
 </script>
 
 <style scoped>
@@ -57,7 +56,7 @@ const modalShow = () => {
   letter-spacing: 0em;
   text-align: center;
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 70%;
   color: #474d66;
   margin: 22px;
@@ -66,12 +65,13 @@ const modalShow = () => {
 .sessions {
   display: flex;
   justify-content: center;
-  gap: 3%;
+  gap: 113px;
   margin-top: 10%;
 }
 
 img {
   margin: 42px;
+  width: 30px;
 }
 
 .first,
@@ -84,10 +84,10 @@ img {
   background: linear-gradient(248deg, #dd5928 -19.99%, #b5461d 121.42%);
   color: #fff;
   padding: 25px;
+  cursor: pointer;
 }
 
 h3 {
-  margin-left: 4%;
   font-size: 32px;
   font-weight: 700;
   line-height: 48px;
@@ -102,9 +102,5 @@ h3 {
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
-}
-
-.modal {
-  background-color: white;
 }
 </style>

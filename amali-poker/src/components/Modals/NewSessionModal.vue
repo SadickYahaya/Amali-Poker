@@ -1,87 +1,235 @@
 <template>
   <div class="main-container">
     <h3>Create a New Session</h3>
-    <div class="sub-container">
-      <div class="flex-box">
-        <input type="text" placeholder=" Enter session name" />
-        <div>
-          <select id="list">
-            <option value="Fibonacci">Fibonacci</option>
-            <option value=" scrum">scrum</option>
-            <option value=" playing card">playing card</option>
-            <option value="sequential">sequential</option>
-            <option value=" T-shirt">T-shirt</option>
-          </select>
+
+    <!--Details session-->
+
+    <div class="flex-box">
+      <input
+        v-model="sessionName"
+        type="text"
+        placeholder="Enter session name"
+        class="session-name"
+        :style="[error && { border: '1px solid red' }]"
+      />
+
+      <!-- Customised Select Option with Dropdowns -->
+      <div class="custom-select">
+        <div class="selected-option" @click="toggleDropdown">
+          {{ selectedOption || "Fibonacci" }}
+          <img src="../../assets/Polygon 2.svg" alt="" />
+        </div>
+        <div class="options" v-if="showDropdown">
+          <div
+            v-for="option in options"
+            :key="option"
+            @click="selectOption(option)"
+          >
+            <p>{{ option }}</p>
+          </div>
         </div>
       </div>
-      <!-- second dropdown-->
-
-      <select id="second-list">
-        <option value="Customize Card values">Customize Card values</option>
-        <option value=" ">Use all cards</option>
-        <option value=" playing card">XS</option>
-        <option value="sequential">S</option>
-        <option value=" T-shirt">M</option>
-        <option value=" T-shirt">L</option>
-        <option value=" T-shirt">XL</option>
-        <option value=" T-shirt">XXL</option>
-      </select>
-
-      <form>
-        <input type="checkbox" id="question" />
-        <label for="question">Do you want to enter stories in this room?</label
-        ><br />
-
-        <input type="checkbox" id="question" />
-        <label for="question">Do you want to enter stories in this room?</label
-        ><br />
-
-        <input type="checkbox" id="question" />
-        <label for="question">Do you want to enter stories in this room?</label
-        ><br />
-
-        <input type="checkbox" id="question" />
-        <label for="question">Do you want to enter stories in this room?</label
-        ><br />
-
-        <input type="checkbox" id="question" />
-        <label for="question">Do you want to enter stories in this room?</label>
-      </form>
-
-      <div class="btn">
-        <button class="crt-btn" @click="storyModal">create</button>
-        <button class="cancel-btn">cancel</button>
+    </div>
+    <div class="card-select">
+      <div class="card-option" @click="toggleAccord">
+        {{ "Custom Card values" }}
+        <img src="../../assets/Polygon 2.svg" alt="" />
+      </div>
+      <div class="accord" v-if="accord">
+        <div class="option" v-for="item in accordItem" :key="item">
+          <div class="text">
+            <input type="checkbox" class="checkbox" />
+            <label for="item">{{ item }}</label>
+          </div>
+        </div>
       </div>
     </div>
-    <NewStoryModal v-if="showModal" />
+
+    <div v-for="item in storyTexts" :key="item" class="stories">
+      <div class="story">
+        <input type="checkbox" class="checkbox" />
+        <p>{{ item }}</p>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button class="crt-btn" @click="navigatePage">Create</button>
+      <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
+    </div>
+    <div></div>
   </div>
 </template>
 
 <script setup>
-import NewStoryModal from "./NewStoryModal.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useRouter } from "vue-router";
 
-const showModal = ref(false);
-const storyModal = () => {
-  showModal.value = true;
+// const fibonacciSequence = ref([]);
+// const calculateFibonacci = (count) => {
+//   let fibonacci = [0, 1];
+//   for (let num = 2; num <= count; num++) {
+//     fibonacci[num] = fibonacci[num - 1] + fibonacci[num - 2];
+//   }
+//   fibonacciSequence.value = fibonacci[num];
+// };
+
+const sessionName = ref("");
+let error = ref(false);
+const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
+const storyTexts = ref([
+  "Do you want to enter stories in this room",
+  "Request confirmation when skipping sotries?",
+  "Do you want to reveal individual votes when voting completed?",
+]);
+let accord = ref(false);
+
+const toggleAccord = () => {
+  accord.value = !accord.value;
 };
+const navigate = useRouter();
+const navigatePage = () => {
+  if (sessionName.value === "") {
+    error.value = !error.value;
+  } else {
+    navigate.push("/sessionName");
+  }
+};
+
+const options = ref([
+  "Fibonacci",
+  "Scrum",
+  "Sequential",
+  "Playing Cards",
+  "T-Shirts",
+]);
+let showDropdown = ref(false);
+let selectedOption = ref("");
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value;
+};
+
+const selectOption = (option) => {
+  selectedOption.value = option;
+  console.log(option);
+  showDropdown.value = false;
+};
+watch(sessionName, (value) => {
+  localStorage.setItem("sessionName", value);
+});
 </script>
 
 <style scoped>
+h3 {
+  color: #474d66;
+  font-size: 23px;
+  text-align: center;
+  text-decoration: 1.4px underline;
+  font-family: "Poppins", sans-serif;
+  margin-top: 10px;
+}
+
 .main-container {
-  width: 623px;
-  padding: 24px;
-  background-color: white;
   position: fixed;
-  top: 20%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
+  background-color: #fdf5f2;
+  max-width: 623px;
+  height: 449px;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
   z-index: 999;
 }
 
-h3 {
-  color: #474d66;
-  text-decoration: underline;
-  text-align: center;
-  font-weight: 700px;
+.flex-box {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 575px;
+  margin: 24px;
+}
+.selected-option,
+.card-option,
+input {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected-option {
+  width: 185px;
+}
+
+.selected-option:focus {
+  border-width: 0;
+  border: none;
+}
+
+.session-name {
+  background-color: #fdf5f2;
+  width: 366px;
+  font-size: large;
+}
+.btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  cursor: pointer;
+  background-color: #dd5928;
+  color: #fff;
+  padding: 8px 16px;
+  width: 186px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  margin: 20px;
+}
+
+.card-option {
+  width: 575px;
+  margin: 24px;
+}
+
+.options {
+  position: fixed;
+  z-index: 999;
+  background-color: white;
+  width: 185px;
+  padding: 10px;
+}
+
+.options:hover {
+  cursor: default;
+}
+
+.accord {
+  position: fixed;
+  top: 40%;
+  z-index: 999;
+  width: 575px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  margin: 24px;
+  gap: 20px;
+}
+
+.text {
+  display: flex;
+  margin: 10px;
+}
+
+.checkbox {
+  width: 30px;
+}
+
+.story {
+  display: flex;
+  margin: 24px;
 }
 </style>

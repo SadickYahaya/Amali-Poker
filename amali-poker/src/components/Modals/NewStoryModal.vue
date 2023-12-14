@@ -13,6 +13,7 @@
           :key="index"
           :text="item"
           :index="index"
+          @toggle="emit('click')"
         />
       </div>
     </div>
@@ -22,17 +23,19 @@
 <script setup>
 import ButtonComponent from "../../components/Buttons/ButtonComponent.vue";
 import TextAreaComponent from "../TextArea/InputFieldComponent.vue";
-// import CloseIcon from "../../assets/closeIcon.png";
 import { ref } from "vue";
+import { defineEmits } from "vue";
 
 const buttItems = ref(["Save", "Cancel"]);
+
+const emit = defineEmits(["click"]);
 </script>
 
 <style scoped>
 .modal {
   position: fixed;
-  top: 0;
-  left: 25%;
+  bottom: 9%;
+  left: 18%;
   width: 703px;
   border-radius: 8px;
   background-color: #fff;
@@ -53,7 +56,6 @@ h1 {
   max-width: 86px;
   display: flex;
   justify-content: flex-start;
-  /* margin: 30px 10px 24px 450px; */
   gap: 16px;
 }
 
@@ -61,7 +63,7 @@ h1 {
   display: flex;
   justify-content: flex-end;
   margin: 24px;
-  margin-right: 136px;
+  margin-right: 150px;
 }
 
 .modal-content {
