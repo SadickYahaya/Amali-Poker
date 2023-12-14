@@ -64,7 +64,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 90vh; */
   background-color: white;
   border-radius: 5px;
 }
@@ -108,10 +107,11 @@ button {
   border-radius: 5px;
   height: 35px;
   width: 65px;
+  cursor: pointer;
 }
 
 .save-btn button {
-  background: #c93900;
+  background: #ff4800;
   border: none;
   margin-right: 7px;
 }
