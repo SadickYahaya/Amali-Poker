@@ -1,6 +1,6 @@
 <template>
   <SessionName>
-    <div class="container">
+    <div class="card-container">
       <div class="flex-container">
         <div class="inner">1</div>
       </div>
@@ -46,22 +46,14 @@ import SessionName from "../views/SessionName.vue";
 </script>
 
 <style scoped>
-.container {
-  width: 683px;
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  transform: translate(100px, 100px);
-}
-.inner {
-  width: 85px;
-  height: 112px;
-  border: 1px solid rgba(0, 0, 0, 1);
-  transform: translate(11.5px, 16.5px);
-  text-align: center;
-  line-height: 100px;
-  font-size: xxx-large;
-  font-weight: 700;
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 24px;
+  column-gap: -90px;
+  padding: 30px;
+  margin-top: 40px;
+  transform: translate(10%, 5%);
 }
 .flex-container {
   width: 111px;
@@ -70,22 +62,17 @@ import SessionName from "../views/SessionName.vue";
   color: white;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 1);
+  margin: 5px;
 }
-
-.session {
-  width: 397px;
-  text-align: center;
-  transform: translate(240px, -20px);
-}
-
 .inner {
-  width: 85px;
+  width: auto;
   height: 112px;
   border: 1px solid rgba(0, 0, 0, 1);
-  transform: translate(11.5px, 16.5px);
   text-align: center;
   line-height: 100px;
-  font-size: xxx-large;
+  font-size: xxx-large; 
   font-weight: 700;
+  margin: 12px;
 }
+
 </style>
