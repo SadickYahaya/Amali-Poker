@@ -99,7 +99,6 @@ th {
   height: 30px;
   color: white;
   font-family: Poppins;
-  cursor: pointer;
   border: none;
 }
 
@@ -119,24 +118,4 @@ th {
   margin-left: 70px;
   gap: 4px;
 }
-/* @media screen and (min-width: 1550px) {
-  .container {
-    width: 1900px;
-    height: 920px;
-  }
-  table {
-    width: 1300px;
-    height: 500px;
-    transform: translate(-450px, 80px);
-  }
-  .create-button {
-    transform: translate(550px, 10px);
-  }
-  #Title {
-    width: 450px;
-    left: 250px;
-    position: absolute;
-    font-family: Poppins;
-  }
-} */
 </style>
