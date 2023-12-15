@@ -19,7 +19,7 @@
             <div class="top">
               <h3>Players: 6</h3>
               <div class="invite">
-                <button @click="clickToInvite">
+                <button @click="showMyUrlModalForm">
                   <img :src="addImage" alt="" />
                 </button>
                 <h3>invite</h3>
@@ -47,12 +47,17 @@
       </div>
     </div>
   </div>
+  <UrlModal v-model="showUrlModal" />
 </template>
 <script setup>
+import { ref } from "vue";
 import Logo from "../assets/hamburger.png";
 import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
+import UrlModal from "@/components/Modals/UrlModal.vue";
+const showUrlModal = ref(false);
+
 // import { defineProps } from "vue";
 
 // const props = defineProps({
@@ -67,9 +72,9 @@ const navigatePage = () => {
   navigate.push("/votingsession");
 };
 
-const clickToInvite = () => {
-  navigate.push("/UrlModal");
-};
+function showMyUrlModalForm() {
+  showUrlModal.value = true;
+}
 </script>
 <style scoped>
 .main-container {
