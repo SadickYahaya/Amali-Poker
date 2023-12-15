@@ -8,7 +8,7 @@
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="showModal"><h3>New Session</h3></div>
+        <div class="first" @click="showModal"><h3>Create New Session</h3></div>
         <div class="second" @click="navigatePage">
           <h3>View Recent Session</h3>
         </div>
