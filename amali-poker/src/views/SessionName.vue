@@ -19,7 +19,7 @@
             <div class="top">
               <h3>Players: 6</h3>
               <div class="invite">
-                <button>
+                <button @click="clickToInvite">
                   <img :src="addImage" alt="" />
                 </button>
                 <h3>invite</h3>
@@ -65,6 +65,10 @@ const storedItem = localStorage.getItem("sessionName");
 let navigate = useRouter();
 const navigatePage = () => {
   navigate.push("/votingsession");
+};
+
+const clickToInvite = () => {
+  navigate.push("/UrlModal");
 };
 </script>
 <style scoped>
