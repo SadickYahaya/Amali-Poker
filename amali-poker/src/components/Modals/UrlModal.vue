@@ -23,22 +23,23 @@
 
 <script setup>
 import { ref } from "vue";
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["closeUrlModal"]);
 
 const urlInput = ref(null);
-const isCopyUrlModalVisible = ref(true);
 
-// Function to copy the URL
 const copyToClipboard = () => {
   const inputElement = urlInput.value;
   inputElement.select();
   document.execCommand("copy");
   alert("Url copied");
-  isCopyUrlModalVisible.value = false; // This is to hide the modal after the URL has been copied
+  emit("closeUrlModal", false);
 };
 
 // function to cancel the URL
 const cancelCopy = () => {
-  isCopyUrlModalVisible.value = false;
+  emit("closeUrlModal", false);
 };
 </script>
 

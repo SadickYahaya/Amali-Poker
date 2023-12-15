@@ -47,7 +47,7 @@
       </div>
     </div>
   </div>
-  <UrlModal v-model="showUrlModal" />
+  <UrlModal v-if="showUrlModal" @close-url-modal="handleCloseUrlModal" />
 </template>
 <script setup>
 import { ref } from "vue";
@@ -74,6 +74,10 @@ const navigatePage = () => {
 
 function showMyUrlModalForm() {
   showUrlModal.value = true;
+}
+
+function handleCloseUrlModal(status) {
+  showUrlModal.value = status;
 }
 </script>
 <style scoped>
