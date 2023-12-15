@@ -7,12 +7,34 @@
       rows="4"
       value=""
       placeholder="Put your stories in here. Each line is a new story"
+      v-model="storyInput"
+      @input="processStoryInput"
     >
     </textarea>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, watch } from "vue";
+
+const storyInput = ref("");
+const storyTexts = ref([]);
+
+const processStoryInput = () => {
+  const lines = storyInput.value.split("\n");
+
+  const nonEmptyLines = lines.filter((line) => line.trim() !== "");
+
+  storyTexts.value = nonEmptyLines;
+
+  console.log(storyTexts.value);
+};
+
+watch(storyTexts, (value) => {
+  const storyNumber = value.length;
+  localStorage.setItem("storyTextsNumber", storyNumber);
+});
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");

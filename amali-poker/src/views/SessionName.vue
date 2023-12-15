@@ -13,7 +13,7 @@
         </div>
         <div class="display">
           <div class="head">
-            <h2>1 story created</h2>
+            <h2>{{ storyNumber }} story created</h2>
           </div>
           <div class="content">
             <div class="top">
@@ -53,15 +53,9 @@ import Logo from "../assets/hamburger.png";
 import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
-// import { defineProps } from "vue";
-
-// const props = defineProps({
-//   sessionStory: {
-//     type: String,
-//   },
-// });
 
 const storedItem = localStorage.getItem("sessionName");
+const storyNumber = localStorage.getItem("storyTextsNumber");
 let navigate = useRouter();
 const navigatePage = () => {
   navigate.push("/votingsession");

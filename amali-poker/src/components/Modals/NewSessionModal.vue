@@ -64,18 +64,9 @@
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
-// const fibonacciSequence = ref([]);
-// const calculateFibonacci = (count) => {
-//   let fibonacci = [0, 1];
-//   for (let num = 2; num <= count; num++) {
-//     fibonacci[num] = fibonacci[num - 1] + fibonacci[num - 2];
-//   }
-//   fibonacciSequence.value = fibonacci[num];
-// };
-
 const sessionName = ref("");
 let error = ref(false);
-const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
+const accordItem = ref([0, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
 const storyTexts = ref([
   "Do you want to enter stories in this room",
   "Request confirmation when skipping sotries?",
@@ -101,7 +92,9 @@ const options = ref([
   "Sequential",
   "Playing Cards",
   "T-Shirts",
+  "Coffee",
 ]);
+
 let showDropdown = ref(false);
 let selectedOption = ref("");
 
@@ -116,6 +109,18 @@ const selectOption = (option) => {
 };
 watch(sessionName, (value) => {
   localStorage.setItem("sessionName", value);
+});
+
+watch(selectedOption, (newOption) => {
+  if (newOption === "Fibonacci") {
+    accordItem.value = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, "Coffee"];
+  } else if (newOption === "Scrum") {
+    (accordItem.value = [0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40]), "Coffee";
+  } else if (newOption === "T-Shirts") {
+    accordItem.value = ["XS", "S", "M", "L", "XL", "XXL", "Coffee"];
+  } else {
+    accordItem.value = [0, 1, 2, 3, 4, 5, 6, 7];
+  }
 });
 </script>
 
