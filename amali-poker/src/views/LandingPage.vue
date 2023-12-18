@@ -18,7 +18,7 @@
           </div>
 
           <div class="button">
-            <button @click="navigatePage">Get Started</button>
+            <button @click="showModal">Get Started</button>
           </div>
         </div>
       </div>
@@ -50,15 +50,24 @@
         </div>
       </div>
     </div>
+    <div class="story-modal">
+      <NewSessionModal v-if="modalView" @modal="closeModal" />
+      <div class="modal-overlay" v-if="modalView"></div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-const navigate = useRouter();
+import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
+import { ref } from "vue";
 
-const navigatePage = () => {
-  navigate.push("/dashboard");
+let modalView = ref(false);
+const showModal = () => {
+  modalView.value = true;
+};
+
+const closeModal = () => {
+  modalView.value = false;
 };
 </script>
 
@@ -153,5 +162,14 @@ button:hover {
 .icons img {
   width: 100px;
   height: 80px;
+}
+
+.modal-overlay {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
 }
 </style>
