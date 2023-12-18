@@ -66,6 +66,7 @@ let navigate = useRouter();
 const navigatePage = () => {
   navigate.push("/votingsession");
 };
+
 </script>
 <style scoped>
 .main-container {
