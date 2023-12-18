@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <div class="Logo">
+      <div class="logo">
         <img src="../assets/logo (1).png" alt="" />
       </div>
-      <p class="Title">Recent Sessions</p>
+      <p class="title">Recent Sessions</p>
     </div>
     <div class="create-button">
       <button>+ Create Project</button>
@@ -85,7 +85,7 @@ th {
   width: 10px;
   height: 60px;
 }
-.Title {
+.title {
   font-family: "Poppins", sans-serif;
   font-size: xxx-large;
   display: flex;
@@ -99,12 +99,11 @@ th {
   height: 30px;
   color: white;
   font-family: Poppins;
-  cursor: pointer;
   border: none;
 }
 
 .create-button,
-.Title {
+.title {
   margin-right: 200px;
 }
 .create-button {
@@ -112,31 +111,11 @@ th {
   justify-content: flex-end;
   margin-top: 50px;
 }
-.Logo {
+.logo {
   width: 10px;
   height: 12px;
   margin-top: 21px;
   margin-left: 70px;
   gap: 4px;
 }
-/* @media screen and (min-width: 1550px) {
-  .container {
-    width: 1900px;
-    height: 920px;
-  }
-  table {
-    width: 1300px;
-    height: 500px;
-    transform: translate(-450px, 80px);
-  }
-  .create-button {
-    transform: translate(550px, 10px);
-  }
-  #Title {
-    width: 450px;
-    left: 250px;
-    position: absolute;
-    font-family: Poppins;
-  }
-} */
 </style>

@@ -12,6 +12,8 @@
         class="session-name"
         :style="[error && { border: '1px solid red' }]"
       />
+
+      <!-- Customised Select Option with Dropdowns -->
       <div class="custom-select">
         <div class="selected-option" @click="toggleDropdown">
           {{ selectedOption || "Fibonacci" }}
@@ -54,21 +56,17 @@
       <button class="crt-btn" @click="navigatePage">Create</button>
       <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
     </div>
-    <div>
-      <SessionName v-if="showSessionname" />
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
-import SessionName from "../../views/SessionName.vue";
 
-let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
-const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
+const accordItem = ref([0, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
 const storyTexts = ref([
   "Do you want to enter stories in this room",
   "Request confirmation when skipping sotries?",
@@ -94,7 +92,9 @@ const options = ref([
   "Sequential",
   "Playing Cards",
   "T-Shirts",
+  "Coffee",
 ]);
+
 let showDropdown = ref(false);
 let selectedOption = ref("");
 
@@ -104,10 +104,23 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option;
+  console.log(option);
   showDropdown.value = false;
 };
 watch(sessionName, (value) => {
   localStorage.setItem("sessionName", value);
+});
+
+watch(selectedOption, (newOption) => {
+  if (newOption === "Fibonacci") {
+    accordItem.value = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, "Coffee"];
+  } else if (newOption === "Scrum") {
+    (accordItem.value = [0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40]), "Coffee";
+  } else if (newOption === "T-Shirts") {
+    accordItem.value = ["XS", "S", "M", "L", "XL", "XXL", "Coffee"];
+  } else {
+    accordItem.value = [0, 1, 2, 3, 4, 5, 6, 7];
+  }
 });
 </script>
 

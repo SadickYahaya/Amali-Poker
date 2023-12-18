@@ -56,7 +56,6 @@ h1 {
   max-width: 86px;
   display: flex;
   justify-content: flex-start;
-  /* margin: 30px 10px 24px 450px; */
   gap: 16px;
 }
 
@@ -64,7 +63,7 @@ h1 {
   display: flex;
   justify-content: flex-end;
   margin: 24px;
-  margin-right: 136px;
+  margin-right: 150px;
 }
 
 .modal-content {
