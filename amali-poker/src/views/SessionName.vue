@@ -1,56 +1,75 @@
 <template>
-  <div class="main-container" :style="{ backgroundImage: `url(${Img})` }">
-    <div class="logo">
-      <img :src="Logo" alt="" />
-    </div>
-    <div class="main">
-      <div class="right">
-        <slot></slot>
+  <main>
+    <div>
+      <div class="logo">
+        <img :src="Logo" alt="" />
       </div>
-      <div class="left">
-        <div class="session">
-          <h1>{{ storedItem }}</h1>
+    </div>
+    <div class="main-container">
+      <div class="main">
+        <div class="left">
+          <slot></slot>
         </div>
-        <div class="display">
-          <div class="head">
-            <h2>{{ storyNumber }} story created</h2>
+        <div class="right">
+          <div class="session">
+            <h1>{{ storedItem }}</h1>
           </div>
-          <div class="content">
-            <div class="top">
-              <h3>Players: 6</h3>
-              <div class="invite">
-                <button>
-                  <img :src="addImage" alt="" />
-                </button>
-                <h3>invite</h3>
+          <div class="display">
+            <div class="head">
+              <h2>{{ storyNumber }} story created</h2>
+            </div>
+            <div class="content">
+              <div class="top">
+                <h3>Players: 6</h3>
+                <div class="invite">
+                  <button>
+                    <img :src="addImage" alt="" />
+                  </button>
+                  <h3>invite</h3>
+                </div>
+              </div>
+              <hr id="hr1" />
+              <div class="players">
+                <ul>
+                  <li>Zion</li>
+                  <li>Olivia</li>
+                  <li>Nii</li>
+                  <li>Osborn</li>
+                  <li>Albert</li>
+                  <li>Joseph</li>
+                </ul>
+              </div>
+              <hr id="hr2" />
+              <div class="btn-container">
+                <div class="top-btn">
+                  <div class="re-vote-btn" @click="navigatePage">
+                    <button>Re-Vote</button>
+                  </div>
+                  <div class="end-session-btn">
+                    <button>End Session</button>
+                  </div>
+                </div>
+                <div class="down-btn">
+                  <div class="cancel-Session-btn">
+                    <button>Cancel Session</button>
+                  </div>
+                  <div class="reveal-Card-btn">
+                    <button>Reveal Card</button>
+                  </div>
+                </div>
               </div>
             </div>
-            <hr id="hr1" />
-            <div class="players">
-              <ul>
-                <li>Zion</li>
-                <li>Olivia</li>
-                <li>Nii</li>
-                <li>Osborn</li>
-                <li>Albert</li>
-                <li>Joseph</li>
-              </ul>
-            </div>
-            <hr id="hr2" />
-            <div class="vote">
-              <button>
-                <h3 @click="navigatePage">Vote</h3>
-              </button>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="modal-overlay" v-if="modalShow"></div>
+    <NewStoryModal @click="pageRefresh" @change="closeModal" v-if="modalShow" />
+  </main>
 </template>
 <script setup>
 import Logo from "../assets/hamburger.png";
-import Img from "../assets/group.svg";
+// import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
 
@@ -62,18 +81,34 @@ const navigatePage = () => {
 };
 </script>
 <style scoped>
-.main-container {
+main {
+  background: url(../assets/group.svg);
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* .main-container {
   overflow: hidden;
   height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 .left {
-  transform: translate(70px, 10px);
+  /* transform: translate(70px, 10px); */
+  transform: scale(0.8);
+  margin-bottom: 100px;
 }
-.logo {
+.right {
+  margin-left: 70px;
+  transform: scale(0.8);
+  margin-right: 100px;
+}
+
+.logo img {
   margin-top: 31px;
   margin-left: 50px;
 }
@@ -89,6 +124,7 @@ h1 {
   line-height: 78px;
   font-size: 52px;
   font-weight: 700;
+  line-height: 45px;
 }
 .display {
   width: 397px;
@@ -129,10 +165,7 @@ h2 {
   font-weight: 700;
   margin-bottom: 14px;
 }
-button {
-  border: none;
-  box-shadow: 3em;
-}
+
 .vote button {
   width: 127px;
   height: 40px;
@@ -161,5 +194,77 @@ hr {
 }
 #hr2 {
   transform: translate(65px, -5px);
+}
+
+.btn-container {
+  margin-top: 10px;
+  margin-left: 65px;
+}
+
+.top-btn {
+  display: flex;
+}
+
+.re-vote-btn button {
+  height: 28px;
+  width: 132px;
+  background: #c93900;
+  color: white;
+  border-radius: 10px;
+  border: 1px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+.re-vote-btn button:hover {
+  background: white;
+  color: #c93900;
+}
+
+.end-session-btn button {
+  height: 28px;
+  width: 132px;
+  background: #c93900;
+  color: white;
+  border-radius: 10px;
+  border: 1px;
+  font-size: 16px;
+}
+.end-session-btn button:hover {
+  background: white;
+  color: #c93900;
+}
+
+.down-btn {
+  display: flex;
+  margin-top: 20px;
+}
+
+.cancel-Session-btn button {
+  height: 28px;
+  width: 132px;
+  background: #c93900;
+  color: white;
+  border-radius: 10px;
+  border: 1px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+.cancel-Session-btn button:hover {
+  background: white;
+  color: #c93900;
+}
+
+.reveal-Card-btn button {
+  height: 28px;
+  width: 132px;
+  background: #c93900;
+  color: white;
+  border-radius: 10px;
+  border: 1px;
+  font-size: 16px;
+}
+.reveal-Card-btn button:hover {
+  background: white;
+  color: #c93900;
 }
 </style>

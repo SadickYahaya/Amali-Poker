@@ -52,10 +52,10 @@
     </div>
 
     <div v-for="item in storyTexts" :key="item" class="stories">
-      <div class="story">
+      <!-- <div class="story">
         <input type="checkbox" class="checkbox" />
         <p>{{ item }}</p>
-      </div>
+      </div> -->
     </div>
 
     <div class="btn">
@@ -84,11 +84,6 @@ const accordItem = ref([
   { label: 34, selected: false },
   { label: 55, selected: false },
   { label: "Coffee", selected: false },
-]);
-const storyTexts = ref([
-  "Do you want to enter stories in this room",
-  "Request confirmation when skipping sotries?",
-  "Do you want to reveal individual votes when voting completed?",
 ]);
 let accord = ref(false);
 
@@ -128,12 +123,8 @@ const selectedLabel = (item) => {
   if (item.selected) {
     selectLabel.value.push(item.label);
   } else {
-    // selectLabel.value = selectLabel.value.filter((label) => {
-    //   label !== item.label;
-    // });
     console.log("error");
   }
-
   localStorage.setItem("selectLabels", selectLabel.value);
 };
 
@@ -198,7 +189,6 @@ h3 {
   left: 50%;
   background-color: #fdf5f2;
   max-width: 623px;
-  height: 449px;
   border-radius: 8px;
   transform: translate(-50%, -50%);
   z-index: 999;
@@ -223,11 +213,6 @@ input {
 
 .selected-option {
   width: 185px;
-}
-
-.selected-option:focus {
-  border-width: 0;
-  border: none;
 }
 
 .session-name {
@@ -261,23 +246,25 @@ button {
 .options {
   position: fixed;
   z-index: 999;
-  background-color: white;
+  background-color: #fdf5f2;
   width: 185px;
   padding: 10px;
 }
 
-.options:hover {
+.options,
+.selected-option,
+.card-option:hover {
   cursor: default;
 }
 
 .accord {
   position: fixed;
-  top: 40%;
+  top: 70%;
   z-index: 999;
   width: 575px;
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: #fdf5f2;
   margin: 24px;
   gap: 20px;
 }
