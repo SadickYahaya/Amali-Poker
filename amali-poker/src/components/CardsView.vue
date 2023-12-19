@@ -1,5 +1,7 @@
 <template>
-  <div><NewStoryModal @click="closeModal" v-if="modalShow" /></div>
+  <div>
+    <NewStoryModal @click="pageRefresh" @change="closeModal" v-if="modalShow" />
+  </div>
   <SessionName>
     <div class="container">
       <div class="flex-container" v-for="item in getItem" :key="item">
@@ -17,6 +19,11 @@ import NewStoryModal from "./Modals/NewStoryModal.vue";
 import { ref } from "vue";
 
 let modalShow = ref(true);
+
+const pageRefresh = () => {
+  window.location.reload();
+};
+
 const closeModal = () => {
   modalShow.value = false;
 };
