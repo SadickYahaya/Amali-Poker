@@ -1,13 +1,44 @@
 <template>
-  <div><NewStoryModal @click="closeModal" v-if="modalShow" /></div>
   <SessionName>
     <div class="container">
-      <div class="flex-container" v-for="item in getItem" :key="item">
-        <div class="inner">
-          {{ item }}
-        </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
       </div>
     </div>
+    <div><NewStoryModal @click="closeModal" v-if="modalShow" /></div>
     <div class="modal-overlay" v-if="modalShow"></div>
   </SessionName>
 </template>
@@ -20,8 +51,6 @@ let modalShow = ref(true);
 const closeModal = () => {
   modalShow.value = false;
 };
-
-const getItem = localStorage.getItem("selectLabels");
 </script>
 <style scoped>
 .container {
@@ -32,14 +61,14 @@ const getItem = localStorage.getItem("selectLabels");
   transform: translate(90px, 30px);
 }
 .inner {
-  /* width: 85px;
+  width: 85px;
   height: 112px;
   border: 1px solid rgba(0, 0, 0, 1);
   transform: translate(11.5px, 16.5px);
   text-align: center;
   line-height: 100px;
   font-size: xxx-large;
-  font-weight: 700; */
+  font-weight: 700;
 }
 .flex-container {
   width: 111px;
