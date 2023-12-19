@@ -12,8 +12,6 @@
         class="session-name"
         :style="[error && { border: '1px solid red' }]"
       />
-
-      <!-- Customised Select Option with Dropdowns -->
       <div class="custom-select">
         <div class="selected-option" @click="toggleDropdown">
           {{ selectedOption || "Fibonacci" }}
@@ -62,14 +60,18 @@
       <button class="crt-btn" @click="navigatePage">Create</button>
       <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
     </div>
-    <div></div>
+    <div>
+      <SessionName v-if="showSessionname" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import SessionName from "../../views/SessionName.vue";
 
+let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([
@@ -110,7 +112,6 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option;
-  console.log(option);
   showDropdown.value = false;
 };
 watch(sessionName, (value) => {
@@ -178,7 +179,6 @@ h3 {
   color: #474d66;
   font-size: 23px;
   text-align: center;
-  text-decoration: 1.4px underline;
   font-family: "Poppins", sans-serif;
   margin-top: 10px;
 }
@@ -249,7 +249,9 @@ button {
   z-index: 999;
   background-color: #fdf5f2;
   width: 185px;
-  padding: 10px;
+  padding: 13px 20px;
+  border: 1px solid;
+  text-decoration-line: underline;
 }
 
 .options,
@@ -277,10 +279,12 @@ button {
 
 .checkbox {
   width: 30px;
+  color: #fdf5f2;
 }
 
 .story {
   display: flex;
   margin: 24px;
+  background-color: #fdf5f2;
 }
 </style>

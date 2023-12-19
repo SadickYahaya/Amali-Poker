@@ -72,12 +72,23 @@ import Logo from "../assets/hamburger.png";
 // import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
+import { ref } from "vue";
+import NewStoryModal from "../components/Modals/NewStoryModal.vue";
 
+let modalShow = ref(true);
 const storedItem = localStorage.getItem("sessionName");
 const storyNumber = localStorage.getItem("storyTextsNumber");
 let navigate = useRouter();
 const navigatePage = () => {
   navigate.push("/votingsession");
+};
+
+const pageRefresh = () => {
+  window.location.reload();
+};
+
+const closeModal = () => {
+  modalShow.value = false;
 };
 </script>
 <style scoped>
@@ -266,5 +277,13 @@ hr {
 .reveal-Card-btn button:hover {
   background: white;
   color: #c93900;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
 }
 </style>
