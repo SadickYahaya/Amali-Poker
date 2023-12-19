@@ -209,6 +209,7 @@ input {
   border: 1px solid #d9d9d9;
   display: flex;
   justify-content: space-between;
+  color: #474d66;
 }
 
 .selected-option {
