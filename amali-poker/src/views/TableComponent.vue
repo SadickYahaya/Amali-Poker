@@ -1,8 +1,10 @@
 <template>
-  <LayOut>
-    <div class="Logo"></div>
+  <div class="container">
     <div>
-      <p>Recent Sessions</p>
+      <div class="logo">
+        <img src="../assets/logo (1).png" alt="" />
+      </div>
+      <p class="title">Recent Sessions</p>
     </div>
     <div class="create-button">
       <button>+ Create Project</button>
@@ -49,69 +51,71 @@
         </tr>
       </tbody>
     </table>
-  </LayOut>
+  </div>
 </template>
-
-<script setup>
-import LayOut from "../LayOut/LayOut.vue";
-</script>
-
+<script setup></script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
-
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/Group\ 633208.svg);
+  overflow: hidden;
+}
 table {
-  width: 1180px;
-  left: 700px;
-  margin-top: 50px;
+  width: 65%;
+  height: 40vh;
   background-color: #fafbff;
-  border-radius: 20px;
-  position: absolute;
-  transform: translate(-50%, 10%);
+  border-radius: 30px;
+  margin: 50px auto;
   border-collapse: collapse;
   cursor: pointer;
+  box-shadow: 5px 5px 10px #888888;
 }
-
 td {
   padding: 10px;
   text-align: center;
   background-color: white;
-  border-radius: 5px;
-  height: 40px;
-  top: 40px;
 }
-
 #Light-color {
   background-color: #e6e8f0;
 }
-
 th {
   background-color: #fafbff;
   width: 10px;
   height: 60px;
 }
-p {
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: xxx-large;
   display: flex;
-  transform: translate(62%, -10%);
-  font-size: 50px;
+  justify-content: flex-end;
+  margin-top: 40px;
 }
-
 .create-button button {
   background-color: #dd5928;
-  border-radius: 10px;
+  border-radius: 5px;
   width: 130px;
   height: 30px;
   color: white;
-  transform: translate(878%, 30%);
   font-family: Poppins;
-  cursor: pointer;
+  border: none;
 }
 
-.Create {
-  font-size: large;
-  color: black;
+.create-button,
+.title {
+  margin-right: 200px;
 }
-
-.Logo {
-  margin-left: 50px;
+.create-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+.logo {
+  width: 10px;
+  height: 12px;
+  margin-top: 21px;
+  margin-left: 70px;
+  gap: 4px;
 }
 </style>

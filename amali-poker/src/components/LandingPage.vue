@@ -10,15 +10,15 @@
           </div>
           <div class="description">
             <p>
-              Amalipoker facilitates sprint planning with a dynamic,
-              user-friendly platform. Real-time multiplayer sessions, intuitive
-              design, and strategic <br />features streamline collaboration for
-              effective <br />planning and decision-making
+
+              Amalipoker facilitates sprint planning with a dynamic, user-friendly platform. Real-time multiplayer
+              sessions, intuitive design, and strategic <br>features streamline collaboration for effective <br>planning
+              and decision-making
             </p>
           </div>
 
           <div class="button">
-            <button @click="showModal">Get Started</button>
+            <button>Get Started</button>
           </div>
         </div>
       </div>
@@ -29,56 +29,43 @@
     <div class="icons-wrapper">
       <div class="icons">
         <div class="icon-section">
-          <img src="../assets/Vector.png" alt="" />
-          <p>
-            Sprint Plan <br />
-            Effortlessly
-          </p>
+          <img src="../assets/icon1.svg" alt="" />
+          <p>Sprint Plan <br> Effortlessly</p>
         </div>
 
         <div class="icon-section">
           <img src="../assets/icon2.svg" alt="" />
-          <p>Estimate Like An <br />Expert</p>
+          <p>Estimate Like An <br>Expert</p>
         </div>
 
         <div class="icon-section">
           <img src="../assets/icon3.svg" alt="" />
-          <p>
-            Play Online <br />
-            Anywhere
-          </p>
+          <p>Play Online <br> Anywhere</p>
         </div>
       </div>
-    </div>
-    <div class="story-modal">
-      <NewSessionModal v-if="modalView" @modal="closeModal" />
-      <div class="modal-overlay" v-if="modalView"></div>
     </div>
   </div>
 </template>
 
-<script setup>
-import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
-import { ref } from "vue";
 
-let modalView = ref(false);
-const showModal = () => {
-  modalView.value = true;
-};
-
-const closeModal = () => {
-  modalView.value = false;
-};
-</script>
+<script setup></script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Poppins:ital,wght@0,200;0,500;0,600;1,800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins";
+}
 
 .logo img {
   width: 150px;
   margin: 10px;
   padding: 5px;
 }
+
 .container {
   margin-top: 140px;
   display: flex;
@@ -99,6 +86,7 @@ const closeModal = () => {
 #Poker {
   color: gray;
 }
+
 .container h1 {
   font-size: 64px;
   font-family: "Poppins";
@@ -107,8 +95,9 @@ const closeModal = () => {
 .container p {
   font-family: "Poppins";
   font-weight: 200;
-  color: #101840;
+  color: #101840
 }
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -126,6 +115,7 @@ const closeModal = () => {
 .bg-img img {
   width: 100%;
 }
+
 .button {
   margin-top: 36px;
 }
@@ -138,18 +128,23 @@ button {
   font-family: "Poppins";
   background: rgb(245, 118, 44);
   color: white;
+
+
+
 }
 
 button:hover {
   cursor: pointer;
-  background: rgb(255, 136, 0);
+  background: rgb(255, 136, 0)
 }
+
 
 .icons-wrapper {
   display: flex;
   justify-content: center;
   text-align: center;
 }
+
 .icons {
   display: flex;
   gap: 160px;
@@ -164,12 +159,6 @@ button:hover {
   height: 80px;
 }
 
-.modal-overlay {
+.description {
   width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-}
-</style>
+}</style>

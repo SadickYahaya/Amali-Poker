@@ -38,21 +38,24 @@ const props = defineProps({
 
 const closeModal = () => {
   if (props.index === 0) {
+    localStorage.getItem("storyTextsNumber");
     emit("toggle");
   }
 };
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
 button {
   background-color: rgba(221, 89, 40, 1);
   color: white;
   border-radius: 8px;
   border: none;
-  width: 80px;
+  width: 95px;
   height: 6vh;
   cursor: pointer;
-
+  font-family: "Work Sans", sans-serif;
   box-shadow: 0px 4px 10px -5px rgba(221, 89, 40, 0.3);
   letter-spacing: 1px;
 }
