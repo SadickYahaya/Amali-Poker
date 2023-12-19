@@ -1,7 +1,10 @@
 <template>
   <SessionName>
     <div class="container">
-      <div class="flex-container">
+      <div class="flex-container" v-for="item in getLabel" :key="item">
+        <div class="inner">{{ item }}</div>
+      </div>
+      <!-- <div class="flex-container">
         <div class="inner">1</div>
       </div>
       <div class="flex-container">
@@ -33,24 +36,14 @@
       </div>
       <div class="flex-container">
         <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
+      </div> -->
     </div>
-    <div><NewStoryModal @click="closeModal" v-if="modalShow" /></div>
-    <div class="modal-overlay" v-if="modalShow"></div>
   </SessionName>
 </template>
 <script setup>
 import SessionName from "../views/SessionName.vue";
-import NewStoryModal from "./Modals/NewStoryModal.vue";
-import { ref } from "vue";
 
-let modalShow = ref(true);
-const closeModal = () => {
-  modalShow.value = false;
-};
+const getLabel = localStorage.getItem("selectLabels");
 </script>
 <style scoped>
 .container {
@@ -77,14 +70,5 @@ const closeModal = () => {
   color: white;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 1);
-}
-
-.modal-overlay {
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
 }
 </style>

@@ -64,6 +64,7 @@ import { ref } from "vue";
 let modalView = ref(false);
 const showModal = () => {
   modalView.value = true;
+  localStorage.removeItem("selectLabels");
 };
 
 const closeModal = () => {

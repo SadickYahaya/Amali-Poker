@@ -14,6 +14,7 @@
           :text="item"
           :index="index"
           @toggle="emit('click')"
+          @click="emit('change')"
         />
       </div>
     </div>
@@ -28,7 +29,7 @@ import { defineEmits } from "vue";
 
 const buttItems = ref(["Save", "Cancel"]);
 
-const emit = defineEmits(["click"]);
+const emit = defineEmits(["click", "change"]);
 </script>
 
 <style scoped>
