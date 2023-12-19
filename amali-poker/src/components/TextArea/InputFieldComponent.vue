@@ -30,6 +30,7 @@ const processStoryInput = () => {
   console.log(storyTexts.value);
 };
 
+//Watching Story Entered
 watch(storyTexts, (value) => {
   const storyNumber = value.length;
   localStorage.setItem("storyTextsNumber", storyNumber);

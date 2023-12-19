@@ -38,6 +38,7 @@ const props = defineProps({
 
 const closeModal = () => {
   if (props.index === 0) {
+    localStorage.getItem("storyTextsNumber");
     emit("toggle");
   }
 };
