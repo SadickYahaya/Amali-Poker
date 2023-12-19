@@ -8,34 +8,19 @@
       <p>Dashboard</p>
 
       <div class="sessions">
-        <div class="first" @click="showModal"><h3>New Session</h3></div>
+        <div class="first" @click="showModal"><h3>Create New Session</h3></div>
         <div class="second" @click="navigatePage">
           <h3>View Recent Session</h3>
         </div>
-      </div>
-      <div class="story-modal">
-        <NewSessionModal v-if="modalView" @modal="closeModal" />
-        <div class="modal-overlay" v-if="modalView"></div>
       </div>
     </div>
   </LayOut>
 </template>
 
 <script setup>
-import { ref } from "vue";
 import LayOut from "@/LayOut/LayOut.vue";
 import Image from "../assets/hamburger.png";
-import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 import { useRouter } from "vue-router";
-
-let modalView = ref(false);
-const showModal = () => {
-  modalView.value = true;
-};
-
-const closeModal = () => {
-  modalView.value = false;
-};
 
 const navigate = useRouter();
 const navigatePage = () => {
@@ -93,14 +78,5 @@ h3 {
   line-height: 48px;
   letter-spacing: 0em;
   text-align: left;
-}
-
-.modal-overlay {
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
 }
 </style>
