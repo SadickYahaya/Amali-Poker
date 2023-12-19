@@ -12,8 +12,6 @@
         class="session-name"
         :style="[error && { border: '1px solid red' }]"
       />
-
-      <!-- Customised Select Option with Dropdowns -->
       <div class="custom-select">
         <div class="selected-option" @click="toggleDropdown">
           {{ selectedOption || "Fibonacci" }}
@@ -56,23 +54,18 @@
       <button class="crt-btn" @click="navigatePage">Create</button>
       <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
     </div>
-    <div></div>
+    <div>
+      <SessionName v-if="showSessionname" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import SessionName from "../../views/SessionName.vue";
 
-// const fibonacciSequence = ref([]);
-// const calculateFibonacci = (count) => {
-//   let fibonacci = [0, 1];
-//   for (let num = 2; num <= count; num++) {
-//     fibonacci[num] = fibonacci[num - 1] + fibonacci[num - 2];
-//   }
-//   fibonacciSequence.value = fibonacci[num];
-// };
-
+let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
@@ -111,7 +104,6 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option;
-  console.log(option);
   showDropdown.value = false;
 };
 watch(sessionName, (value) => {
@@ -124,7 +116,6 @@ h3 {
   color: #474d66;
   font-size: 23px;
   text-align: center;
-  text-decoration: 1.4px underline;
   font-family: "Poppins", sans-serif;
   margin-top: 10px;
 }
@@ -197,24 +188,26 @@ button {
 
 .options {
   position: fixed;
-  z-index: 999;
-  background-color: white;
+
+  background-color: #fdf5f2;
   width: 185px;
-  padding: 10px;
+  padding: 13px 20px;
+  border: 1px solid;
+  text-decoration-line: underline;
 }
 
 .options:hover {
-  cursor: default;
+ cursor: default;
 }
 
 .accord {
   position: fixed;
-  top: 40%;
+  top: 29%;
   z-index: 999;
   width: 575px;
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: #fdf5f2;
   margin: 24px;
   gap: 20px;
 }
@@ -222,14 +215,17 @@ button {
 .text {
   display: flex;
   margin: 10px;
+  
 }
 
 .checkbox {
   width: 30px;
+  color: #fdf5f2;
 }
 
 .story {
   display: flex;
   margin: 24px;
+  background-color: #fdf5f2;
 }
 </style>
