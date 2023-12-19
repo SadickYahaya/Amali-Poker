@@ -36,8 +36,14 @@
       <div class="accord" v-if="accord">
         <div class="option" v-for="item in accordItem" :key="item">
           <div class="text">
-            <input type="checkbox" class="checkbox" />
-            <label for="item">{{ item }}</label>
+            <input
+              type="checkbox"
+              class="checkbox"
+              :id="item.label"
+              :checked="item.selected"
+              @click="selectedLabel(item)"
+            />
+            <label :for="item.label">{{ item.label }}</label>
           </div>
         </div>
       </div>
@@ -65,10 +71,25 @@ import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import SessionName from "../../views/SessionName.vue";
 
+<<<<<<< NewSessiomodal
 let showSessionname = ref(false);
+=======
+>>>>>>> dev
 const sessionName = ref("");
 let error = ref(false);
-const accordItem = ref([1, 1 / 2, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6]);
+const accordItem = ref([
+  { label: 0, selected: false },
+  { label: 1, selected: false },
+  { label: 2, selected: false },
+  { label: 3, selected: false },
+  { label: 5, selected: false },
+  { label: 8, selected: false },
+  { label: 13, selected: false },
+  { label: 21, selected: false },
+  { label: 34, selected: false },
+  { label: 55, selected: false },
+  { label: "Coffee", selected: false },
+]);
 const storyTexts = ref([
   "Do you want to enter stories in this room",
   "Request confirmation when skipping sotries?",
@@ -88,16 +109,11 @@ const navigatePage = () => {
   }
 };
 
-const options = ref([
-  "Fibonacci",
-  "Scrum",
-  "Sequential",
-  "Playing Cards",
-  "T-Shirts",
-]);
+const options = ref(["Fibonacci", "Scrum", "T-Shirts"]);
+
 let showDropdown = ref(false);
 let selectedOption = ref("");
-
+let selectLabel = ref([]);
 const toggleDropdown = () => {
   showDropdown.value = !showDropdown.value;
 };
@@ -108,6 +124,65 @@ const selectOption = (option) => {
 };
 watch(sessionName, (value) => {
   localStorage.setItem("sessionName", value);
+});
+
+const selectedLabel = (item) => {
+  item.selected = !item.selected;
+
+  if (item.selected) {
+    selectLabel.value.push(item.label);
+  } else {
+    // selectLabel.value = selectLabel.value.filter((label) => {
+    //   label !== item.label;
+    // });
+    console.log("error");
+  }
+
+  localStorage.setItem("selectLabels", selectLabel.value);
+};
+
+watch(selectedOption, (newOption) => {
+  if (newOption === "Fibonacci") {
+    accordItem.value = [
+      { label: 0, selected: false },
+      { label: 1, selected: false },
+      { label: 2, selected: false },
+      { label: 3, selected: false },
+      { label: 5, selected: false },
+      { label: 8, selected: false },
+      { label: 13, selected: false },
+      { label: 21, selected: false },
+      { label: 34, selected: false },
+      { label: 55, selected: false },
+      { label: "Coffee", selected: false },
+    ];
+  } else if (newOption === "Scrum") {
+    (accordItem.value = [
+      { label: 0, selected: false },
+      { label: 0.5, selected: false },
+      { label: 1, selected: false },
+      { label: 2, selected: false },
+      { label: 3, selected: false },
+      { label: 4, selected: false },
+      { label: 5, selected: false },
+      { label: 6, selected: false },
+      { label: 7, selected: false },
+      { label: "Coffee", selected: false },
+    ]),
+      "Coffee";
+  } else if (newOption === "T-Shirts") {
+    accordItem.value = [
+      { label: "XS", selected: false },
+      { label: "S", selected: false },
+      { label: "M", selected: false },
+      { label: "L", selected: false },
+      { label: "XL", selected: false },
+      { label: "XXL", selected: false },
+      { label: "Coffee", selected: false },
+    ];
+  } else {
+    accordItem.value = [];
+  }
 });
 </script>
 
