@@ -4,8 +4,16 @@
       <div class="flex-container">
         <div class="inner">1</div>
       </div>
-
-      <!-- <div class="flex-container">
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
+      <div class="flex-container">
         <div class="inner">1</div>
       </div>
       <div class="flex-container">
@@ -19,13 +27,16 @@
       </div>
       <div class="flex-container">
         <div class="inner">1</div>
-      </div> -->
+      </div>
       <div class="flex-container">
         <div class="inner">1</div>
       </div>
-      <!-- <div class="flex-container">
+      <div class="flex-container">
         <div class="inner">1</div>
-      </div> -->
+      </div>
+      <div class="flex-container">
+        <div class="inner">1</div>
+      </div>
     </div>
     <div><NewStoryModal @click="closeModal" v-if="modalShow" /></div>
     <div class="modal-overlay" v-if="modalShow"></div>
