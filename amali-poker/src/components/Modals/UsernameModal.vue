@@ -1,5 +1,11 @@
+
+
 <template>
-  <main class="main-container">  
+
+  <main>
+
+ 
+  <div class="main-container">  
       <p>Enter Username </p>
     
 <div class="sub-container">
@@ -11,20 +17,28 @@
 
 </div>
 </div>
-  </main>
-        
+</div>
+</main>   
   </template>
 
 <script>
+
+
 </script>
 
 <style>
+
+
 .main-container{
   width: 623px;
   height: 212px;
   background-color:#FDF5F2 ;
-  margin: 327px auto;
   border-radius: 8px;
+  box-shadow: 16px 16px 32px 0px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top:327px;
+  left:600px;
+  z-index: 999;
 
  
 }
@@ -59,7 +73,7 @@ input{
   padding: 0px 15px;
 }
 .btn{
-  padding: 2px 0px;
+  padding: 3px 0px;
   width: 575px;
   line-height: 29.05px;
   text-align: center;
@@ -68,7 +82,6 @@ button{
   border: none;
 background-color: #E47A53;
 border-radius: 8px;
-align-content: center;
 width: 189px;
 height: 29px;
 padding: 2px 0px;
