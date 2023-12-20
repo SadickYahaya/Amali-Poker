@@ -1,6 +1,6 @@
 <template>
   <div>
-    <
+    
     <div class="container">
       <div class="bg-img"><img src="../assets/left2-image.svg" alt="" /></div>
 

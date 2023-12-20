@@ -1,5 +1,6 @@
 <template>
   <div>
+    <voting></voting>
     <div class="container">
       <div class="bg-img"><img src="../assets/left2-image.svg" alt="" /></div>
 
@@ -60,7 +61,7 @@
 <script setup>
 import NewSessionModal from "@/components/Modals/NewSessionModal.vue";
 import { ref } from "vue";
-
+import voting from '../views/VotingSession.vue'
 let modalView = ref(false);
 const showModal = () => {
   modalView.value = true;
