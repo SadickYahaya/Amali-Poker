@@ -1,49 +1,33 @@
 <template>
   <SessionName>
     <div class="container">
-      <div class="flex-container" v-for="item in getLabel" :key="item">
+      <div
+        class="flex-container"
+        v-for="(item, index) in getLabel"
+        :key="index"
+      >
         <div class="inner">{{ item }}</div>
       </div>
-      <!-- <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div>
-      <div class="flex-container">
-        <div class="inner">1</div>
-      </div> -->
     </div>
   </SessionName>
+  <div class="modal-overlay" v-if="modalShow"></div>
+  <NewStoryModal @click="pageRefresh" @change="closeModal" v-if="modalShow" />
 </template>
 <script setup>
 import SessionName from "../views/SessionName.vue";
+import { ref } from "vue";
+import NewStoryModal from "../components/Modals/NewStoryModal.vue";
 
-const getLabel = localStorage.getItem("selectLabels");
+let modalShow = ref(true);
+const pageRefresh = () => {
+  window.location.reload();
+};
+
+const closeModal = () => {
+  modalShow.value = false;
+};
+
+const getLabel = JSON.parse(localStorage.getItem("selectLabels") || []);
 </script>
 <style scoped>
 .container {
@@ -51,24 +35,32 @@ const getLabel = localStorage.getItem("selectLabels");
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
-  transform: translate(90px, 30px);
 }
 .inner {
-  width: 85px;
+  width: 100px;
   height: 112px;
   border: 1px solid rgba(0, 0, 0, 1);
   transform: translate(11.5px, 16.5px);
   text-align: center;
   line-height: 100px;
-  font-size: xxx-large;
+  /* font-size: 22px; */
+  font-size: x-large;
   font-weight: 700;
 }
 .flex-container {
-  width: 111px;
+  width: 125px;
   height: 145px;
   background-color: rgba(193, 196, 214, 1);
   color: white;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
 }
 </style>

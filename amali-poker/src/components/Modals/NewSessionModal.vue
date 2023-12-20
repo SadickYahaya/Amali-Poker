@@ -126,7 +126,7 @@ const selectedLabel = (item) => {
   } else {
     console.log("error");
   }
-  localStorage.setItem("selectLabels", selectLabel.value);
+  localStorage.setItem("selectLabels", JSON.stringify(selectLabel.value));
 };
 
 watch(selectedOption, (newOption) => {
