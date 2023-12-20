@@ -71,7 +71,6 @@ import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
 import SessionName from "../../views/SessionName.vue";
 
-let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([
