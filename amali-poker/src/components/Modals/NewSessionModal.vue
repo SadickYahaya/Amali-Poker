@@ -262,7 +262,7 @@ button {
 
 .accord {
   position: fixed;
-  top: 70%;
+  top: 55%;
   z-index: 999;
   width: 575px;
   display: flex;

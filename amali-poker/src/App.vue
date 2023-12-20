@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- <router-view /> -->
-<VotingSession />
+    <router-view />
+    <!-- <VotingSession /> -->
   </div>
 </template>
 
 <script setup>
-import VotingSession from './views/VotingSession.vue';
+// import VotingSession from './views/VotingSession.vue';
 </script>
 
 <style scoped></style>

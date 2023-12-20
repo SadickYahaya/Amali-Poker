@@ -35,9 +35,11 @@ const getLabel = JSON.parse(localStorage.getItem("selectLabels") || []);
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
+  transform: translate(90px, 30px);
+  /* margin: 110px 50px 0 50px; */
 }
 .inner {
-  width: 100px;
+  width: 85px;
   height: 112px;
   border: 1px solid rgba(0, 0, 0, 1);
   transform: translate(11.5px, 16.5px);

@@ -81,20 +81,14 @@ const navigatePage = () => {
 <style scoped>
 main {
   background: url(../assets/group.svg);
-  overflow: hidden;
   height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-.left {
-  transform: scale(0.8);
-  margin-bottom: 100px;
-}
+
 .right {
-  margin-left: 70px;
   transform: scale(0.8);
-  margin-right: 100px;
 }
 
 .logo img {
@@ -107,7 +101,7 @@ main {
 .session {
   width: 397px;
   text-align: center;
-  transform: translate(120px, -70px);
+  /* transform: translate(120px, -70px); */
 }
 h1 {
   line-height: 78px;
@@ -120,7 +114,8 @@ h1 {
   height: 506px;
   border-radius: 8px;
   background-color: rgba(253, 245, 242, 1);
-  transform: translate(120px, -60px);
+  /* margin: 10px; */
+  /* transform: translate(120px, -60px); */
 }
 h2 {
   justify-content: center;
@@ -194,6 +189,11 @@ hr {
   display: flex;
 }
 
+.main-container {
+  display: flex;
+  gap: 10px;
+  /* background-color: blue; */
+}
 .re-vote-btn button {
   height: 28px;
   width: 132px;
