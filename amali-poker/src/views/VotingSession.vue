@@ -32,7 +32,7 @@
       </div>
       <div class="foot">
         <div class="top">
-          <p>Active Stories</p>
+          <p>Active Stories</p> 
           <p>Completed Stories</p>
           <p>All Stories</p>
         </div>
@@ -44,6 +44,10 @@
 
 <script setup>
 import SessionName from "./SessionName.vue";
+
+const storylist = localStorage.getItem('lines')
+console.log(storylist, 'list');
+// const storylist = lines.map(())
 </script>
 
 <style scoped>

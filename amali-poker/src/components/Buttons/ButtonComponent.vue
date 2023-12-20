@@ -17,7 +17,7 @@
           textAlign: 'center',
         },
       ]"
-      @click="closeModal()"
+      @click="refreshPage(), closeModal()"
     >
       {{ text }}
     </button>
@@ -36,9 +36,16 @@ const props = defineProps({
   },
 });
 
-const closeModal = () => {
+const refreshPage = () => {
   if (props.index === 0) {
+    // localStorage.getItem("storyTextsNumber");
     emit("toggle");
+  }
+};
+
+const closeModal = () => {
+  if (props.index === 1) {
+    emit("click");
   }
 };
 </script>

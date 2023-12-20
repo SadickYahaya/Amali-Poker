@@ -7,6 +7,7 @@
       rows="4"
       value=""
       placeholder="Put your stories in here. Each line is a new story"
+      @keydown="getStories()"
       v-model="storyInput"
       @input="processStoryInput"
     >
@@ -19,21 +20,29 @@ import { ref, watch } from "vue";
 
 const storyInput = ref("");
 const storyTexts = ref([]);
+let lines = ref({})
 
 const processStoryInput = () => {
-  const lines = storyInput.value.split("\n");
+   lines.value = storyInput.value.split("\n");
 
-  const nonEmptyLines = lines.filter((line) => line.trim() !== "");
+  const nonEmptyLines = lines.value.filter((line) => line.trim() !== "");
 
   storyTexts.value = nonEmptyLines;
 
   console.log(storyTexts.value);
 };
 
-watch(storyTexts, (value) => {
-  const storyNumber = value.length;
-  localStorage.setItem("storyTextsNumber", storyNumber);
-});
+
+function getStories() {
+  watch(lines, (value) => {
+    localStorage.setItem('lines', value)
+  })
+  //Watching Story Entered
+  watch(storyTexts, (value) => {
+    const storyNumber = value.length;
+    localStorage.setItem("storyTextsNumber", storyNumber);
+  });
+}
 </script>
 
 <style scoped>
