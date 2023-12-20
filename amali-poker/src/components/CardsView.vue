@@ -31,26 +31,25 @@ const getLabel = JSON.parse(localStorage.getItem("selectLabels") || []);
 </script>
 <style scoped>
 .container {
-  width: 683px;
+  width: 60%;
+  /* background-color: red; */
   display: flex;
-  gap: 32px;
   flex-wrap: wrap;
-  transform: translate(90px, 30px);
-  /* margin: 110px 50px 0 50px; */
+  gap: 22px;
+  flex-wrap: wrap;
 }
 .inner {
-  width: 85px;
+  width: 69px;
   height: 112px;
   border: 1px solid rgba(0, 0, 0, 1);
   transform: translate(11.5px, 16.5px);
   text-align: center;
   line-height: 100px;
-  /* font-size: 22px; */
   font-size: x-large;
   font-weight: 700;
 }
 .flex-container {
-  width: 125px;
+  width: 95px;
   height: 145px;
   background-color: rgba(193, 196, 214, 1);
   color: white;

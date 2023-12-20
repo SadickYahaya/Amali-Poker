@@ -67,7 +67,6 @@
 </template>
 <script setup>
 import Logo from "../assets/hamburger.png";
-// import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
 
@@ -81,10 +80,20 @@ const navigatePage = () => {
 <style scoped>
 main {
   background: url(../assets/group.svg);
-  height: 100vh;
   width: 100%;
-  margin: 0;
-  padding: 0;
+}
+
+.main {
+  width: 90%;
+  display: flex;
+  /* background-color: aqua; */
+  display: flex;
+  margin: 70px 0 0 52px;
+}
+
+.right {
+  width: 40%;
+  /* background-color: greenyellow; */
 }
 
 .right {
@@ -101,26 +110,17 @@ main {
 .session {
   width: 397px;
   text-align: center;
-  /* transform: translate(120px, -70px); */
 }
 h1 {
-  line-height: 78px;
   font-size: 52px;
   font-weight: 700;
-  line-height: 45px;
 }
 .display {
-  width: 397px;
   height: 506px;
   border-radius: 8px;
   background-color: rgba(253, 245, 242, 1);
-  /* margin: 10px; */
-  /* transform: translate(120px, -60px); */
 }
-h2 {
-  justify-content: center;
-  align-items: center;
-}
+
 .head {
   background-color: rgba(228, 122, 83, 1);
   color: white;
@@ -141,7 +141,6 @@ h2 {
 }
 .players {
   margin-left: 50px;
-  border-radius: 8px;
 }
 .players ul li {
   font-style: bold;
@@ -192,7 +191,6 @@ hr {
 .main-container {
   display: flex;
   gap: 10px;
-  /* background-color: blue; */
 }
 .re-vote-btn button {
   height: 28px;
@@ -218,10 +216,6 @@ hr {
   border: 1px;
   font-size: 16px;
 }
-/* .end-session-btn button:hover {
-  background: white;
-  color: #c93900;
-} */
 
 .down-btn {
   display: flex;
@@ -238,10 +232,6 @@ hr {
   margin-right: 10px;
   font-size: 16px;
 }
-/* .cancel-Session-btn button:hover {
-  background: white;
-  color: #c93900;
-} */
 
 .reveal-Card-btn button {
   height: 28px;
@@ -252,8 +242,4 @@ hr {
   border: 1px;
   font-size: 16px;
 }
-/* .reveal-Card-btn button:hover {
-  background: white;
-  color: #c93900;
-} */
 </style>
