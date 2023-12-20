@@ -12,8 +12,6 @@
         class="session-name"
         :style="[error && { border: '1px solid red' }]"
       />
-
-      <!-- Customised Select Option with Dropdowns -->
       <div class="custom-select">
         <div class="selected-option" @click="toggleDropdown">
           {{ selectedOption || "Fibonacci" }}
@@ -52,24 +50,28 @@
     </div>
 
     <div v-for="item in storyTexts" :key="item" class="stories">
-      <div class="story">
+      <!-- <div class="story">
         <input type="checkbox" class="checkbox" />
         <p>{{ item }}</p>
-      </div>
+      </div> -->
     </div>
 
     <div class="btn">
       <button class="crt-btn" @click="navigatePage">Create</button>
       <button class="cancel-btn" @click="$emit('modal')">Cancel</button>
     </div>
-    <div></div>
+    <div>
+      <SessionName v-if="showSessionname" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import SessionName from "../../views/SessionName.vue";
 
+let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([
@@ -84,11 +86,6 @@ const accordItem = ref([
   { label: 34, selected: false },
   { label: 55, selected: false },
   { label: "Coffee", selected: false },
-]);
-const storyTexts = ref([
-  "Do you want to enter stories in this room",
-  "Request confirmation when skipping sotries?",
-  "Do you want to reveal individual votes when voting completed?",
 ]);
 let accord = ref(false);
 
@@ -115,7 +112,6 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option;
-  console.log(option);
   showDropdown.value = false;
 };
 watch(sessionName, (value) => {
@@ -128,12 +124,8 @@ const selectedLabel = (item) => {
   if (item.selected) {
     selectLabel.value.push(item.label);
   } else {
-    // selectLabel.value = selectLabel.value.filter((label) => {
-    //   label !== item.label;
-    // });
     console.log("error");
   }
-
   localStorage.setItem("selectLabels", selectLabel.value);
 };
 
@@ -187,7 +179,6 @@ h3 {
   color: #474d66;
   font-size: 23px;
   text-align: center;
-  text-decoration: 1.4px underline;
   font-family: "Poppins", sans-serif;
   margin-top: 10px;
 }
@@ -198,7 +189,6 @@ h3 {
   left: 50%;
   background-color: #fdf5f2;
   max-width: 623px;
-  height: 449px;
   border-radius: 8px;
   transform: translate(-50%, -50%);
   z-index: 999;
@@ -219,15 +209,11 @@ input {
   border: 1px solid #d9d9d9;
   display: flex;
   justify-content: space-between;
+  color: #474d66;
 }
 
 .selected-option {
   width: 185px;
-}
-
-.selected-option:focus {
-  border-width: 0;
-  border: none;
 }
 
 .session-name {
@@ -261,23 +247,27 @@ button {
 .options {
   position: fixed;
   z-index: 999;
-  background-color: white;
+  background-color: #fdf5f2;
   width: 185px;
-  padding: 10px;
+  padding: 13px 20px;
+  border: 1px solid;
+  text-decoration-line: underline;
 }
 
-.options:hover {
+.options,
+.selected-option,
+.card-option:hover {
   cursor: default;
 }
 
 .accord {
   position: fixed;
-  top: 40%;
+  top: 70%;
   z-index: 999;
   width: 575px;
   display: flex;
   flex-wrap: wrap;
-  background-color: white;
+  background-color: #fdf5f2;
   margin: 24px;
   gap: 20px;
 }
@@ -289,10 +279,12 @@ button {
 
 .checkbox {
   width: 30px;
+  color: #fdf5f2;
 }
 
 .story {
   display: flex;
   margin: 24px;
+  background-color: #fdf5f2;
 }
 </style>
