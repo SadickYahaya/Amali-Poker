@@ -63,8 +63,6 @@
         </div>
       </div>
     </div>
-    <div class="modal-overlay" v-if="modalShow"></div>
-    <NewStoryModal @click="pageRefresh" @change="closeModal" v-if="modalShow" />
   </main>
 </template>
 <script setup>
@@ -72,51 +70,25 @@ import Logo from "../assets/hamburger.png";
 // import Img from "../assets/group.svg";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
-import { ref } from "vue";
-import NewStoryModal from "../components/Modals/NewStoryModal.vue";
 
-let modalShow = ref(true);
 const storedItem = localStorage.getItem("sessionName");
 const storyNumber = localStorage.getItem("storyTextsNumber");
 let navigate = useRouter();
 const navigatePage = () => {
   navigate.push("/votingsession");
 };
-
-const pageRefresh = () => {
-  window.location.reload();
-};
-
-const closeModal = () => {
-  modalShow.value = false;
-};
 </script>
 <style scoped>
 main {
   background: url(../assets/group.svg);
-  overflow: hidden;
   height: 100vh;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-/* .main-container {
-  overflow: hidden;
-  height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-.left {
-  /* transform: translate(70px, 10px); */
-  transform: scale(0.8);
-  margin-bottom: 100px;
-}
+
 .right {
-  margin-left: 70px;
   transform: scale(0.8);
-  margin-right: 100px;
 }
 
 .logo img {
@@ -129,7 +101,7 @@ main {
 .session {
   width: 397px;
   text-align: center;
-  transform: translate(120px, -70px);
+  /* transform: translate(120px, -70px); */
 }
 h1 {
   line-height: 78px;
@@ -142,7 +114,8 @@ h1 {
   height: 506px;
   border-radius: 8px;
   background-color: rgba(253, 245, 242, 1);
-  transform: translate(120px, -60px);
+  /* margin: 10px; */
+  /* transform: translate(120px, -60px); */
 }
 h2 {
   justify-content: center;
@@ -180,7 +153,7 @@ h2 {
 .vote button {
   width: 127px;
   height: 40px;
-  color: white;
+  color: #c93900;
   background-color: rgba(228, 122, 83, 1);
   border-radius: 8px;
   transform: translate(135px, 15px);
@@ -216,6 +189,11 @@ hr {
   display: flex;
 }
 
+.main-container {
+  display: flex;
+  gap: 10px;
+  /* background-color: blue; */
+}
 .re-vote-btn button {
   height: 28px;
   width: 132px;
@@ -240,10 +218,10 @@ hr {
   border: 1px;
   font-size: 16px;
 }
-.end-session-btn button:hover {
+/* .end-session-btn button:hover {
   background: white;
   color: #c93900;
-}
+} */
 
 .down-btn {
   display: flex;
@@ -260,10 +238,10 @@ hr {
   margin-right: 10px;
   font-size: 16px;
 }
-.cancel-Session-btn button:hover {
+/* .cancel-Session-btn button:hover {
   background: white;
   color: #c93900;
-}
+} */
 
 .reveal-Card-btn button {
   height: 28px;
@@ -274,16 +252,8 @@ hr {
   border: 1px;
   font-size: 16px;
 }
-.reveal-Card-btn button:hover {
+/* .reveal-Card-btn button:hover {
   background: white;
   color: #c93900;
-}
-
-.modal-overlay {
-  background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-}
+} */
 </style>

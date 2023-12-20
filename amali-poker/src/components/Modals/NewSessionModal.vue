@@ -126,7 +126,7 @@ const selectedLabel = (item) => {
   } else {
     console.log("error");
   }
-  localStorage.setItem("selectLabels", selectLabel.value);
+  localStorage.setItem("selectLabels", JSON.stringify(selectLabel.value));
 };
 
 watch(selectedOption, (newOption) => {
@@ -262,7 +262,7 @@ button {
 
 .accord {
   position: fixed;
-  top: 70%;
+  top: 55%;
   z-index: 999;
   width: 575px;
   display: flex;

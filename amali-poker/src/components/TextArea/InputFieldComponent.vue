@@ -34,6 +34,7 @@ const processStoryInput = () => {
 watch(storyTexts, (value) => {
   const storyNumber = value.length;
   localStorage.setItem("storyTextsNumber", storyNumber);
+  localStorage.setItem("Stories", JSON.stringify(value));
 });
 </script>
 
