@@ -26,10 +26,16 @@
           <p>Add Stories +</p>
         </div>
         <div class="down">
-          <div class="FieldOne">
-            <!--     -->
+          <div
+            class="FieldOne"
+            v-for="(item, index) in getStories"
+            :key="index"
+          >
+            <ul>
+              <li>{{ item }}</li>
+            </ul>
           </div>
-          <div class="FieldTwo"></div>
+          <!-- <div class="FieldTwo"></div> -->
         </div>
       </div>
     </div>
@@ -38,11 +44,14 @@
 
 <script setup>
 import SessionName from "./SessionName.vue";
+
+const getStories = JSON.parse(localStorage.getItem("Stories")) || [];
 </script>
 
 <style scoped>
 .main {
   width: 505px;
+  height: 100vh;
   background-color: #fdf5f2;
   /* margin: 100px; */
   /* width: 40%; */

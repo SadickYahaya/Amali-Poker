@@ -75,7 +75,7 @@ let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([
-  { label: 0, selected: false },
+  { label: "?", selected: false },
   { label: 1, selected: false },
   { label: 2, selected: false },
   { label: 3, selected: false },
@@ -85,7 +85,6 @@ const accordItem = ref([
   { label: 21, selected: false },
   { label: 34, selected: false },
   { label: 55, selected: false },
-  { label: "Coffee", selected: false },
 ]);
 let accord = ref(false);
 
@@ -132,7 +131,7 @@ const selectedLabel = (item) => {
 watch(selectedOption, (newOption) => {
   if (newOption === "Fibonacci") {
     accordItem.value = [
-      { label: 0, selected: false },
+      { label: "?", selected: false },
       { label: 1, selected: false },
       { label: 2, selected: false },
       { label: 3, selected: false },
@@ -142,11 +141,10 @@ watch(selectedOption, (newOption) => {
       { label: 21, selected: false },
       { label: 34, selected: false },
       { label: 55, selected: false },
-      { label: "Coffee", selected: false },
     ];
   } else if (newOption === "Scrum") {
-    (accordItem.value = [
-      { label: 0, selected: false },
+    accordItem.value = [
+      { label: "?", selected: false },
       { label: 0.5, selected: false },
       { label: 1, selected: false },
       { label: 2, selected: false },
@@ -155,18 +153,6 @@ watch(selectedOption, (newOption) => {
       { label: 5, selected: false },
       { label: 6, selected: false },
       { label: 7, selected: false },
-      { label: "Coffee", selected: false },
-    ]),
-      "Coffee";
-  } else if (newOption === "T-Shirts") {
-    accordItem.value = [
-      { label: "XS", selected: false },
-      { label: "S", selected: false },
-      { label: "M", selected: false },
-      { label: "L", selected: false },
-      { label: "XL", selected: false },
-      { label: "XXL", selected: false },
-      { label: "Coffee", selected: false },
     ];
   } else {
     accordItem.value = [];
