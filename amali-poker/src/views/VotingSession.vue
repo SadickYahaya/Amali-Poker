@@ -1,44 +1,46 @@
 <template>
-  <SessionName>
-    <div class="main">
-      <h1>USER STORY ONE</h1>
-      <div class="content">
-        <div class="eclipse">
-          <div class="inner">
-            <h4>Estimation:</h4>
-            <h4>28%</h4>
+  <main>
+    <SessionName>
+      <div class="main">
+        <h1>USER STORY ONE</h1>
+        <div class="content">
+          <div class="eclipse">
+            <div class="inner">
+              <h4>Estimation:</h4>
+              <h4>28%</h4>
+            </div>
           </div>
-        </div>
 
-        <div class="list">
-          <ul>
-            <li>28% (Zion)</li>
-            <br />
-            <li>28% (Emmanuel)</li>
-            <br />
-            <li>28% (Albert)</li>
-          </ul>
-        </div>
-      </div>
-      <div class="foot">
-        <div class="top">
-          <p>Story List</p>
-          <p>Add Stories +</p>
-        </div>
-        <div class="down">
-          <div
-            class="FieldOne"
-            v-for="(item, index) in getStories"
-            :key="index"
-          >
+          <div class="list">
             <ul>
-              <li>{{ item }}</li>
+              <li>28% (Zion)</li>
+              <br />
+              <li>28% (Emmanuel)</li>
+              <br />
+              <li>28% (Albert)</li>
             </ul>
           </div>
         </div>
+        <div class="foot">
+          <div class="top">
+            <p>Story List</p>
+            <p>Add Stories +</p>
+          </div>
+          <div class="down">
+            <div
+              class="FieldOne"
+              v-for="(item, index) in getStories"
+              :key="index"
+            >
+              <ul>
+                <li>{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </SessionName>
+    </SessionName>
+  </main>
 </template>
 
 <script setup>
@@ -48,14 +50,26 @@ const getStories = JSON.parse(localStorage.getItem("Stories")) || [];
 </script>
 
 <style scoped>
+main {
+  overflow-y: hidden;
+}
+
+SessionName {
+  margin-bottom: 200px;
+}
+
 .main {
   width: 505px;
   height: 100vh;
+  transform: scale(0.8);
   background-color: #fdf5f2;
-  /* margin: 100px; */
+  margin-bottom: 500px;
   /* width: 40%; */
   border-radius: 8px;
   margin: 40px;
+  margin: -30px auto;
+  transform: scale(0.8);
+  margin-left: 50px;
 }
 .content {
   display: flex;
