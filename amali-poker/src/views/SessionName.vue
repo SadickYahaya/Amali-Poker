@@ -16,7 +16,13 @@
           </div>
           <div class="display">
             <div class="head">
-              <h2>{{ storyNumber }} story created</h2>
+              <h2>
+                {{ storyNumber || "0" }}
+                <span v-if="storyNumber > 1">{{
+                  (story = "stories created")
+                }}</span>
+                <span v-else>{{ story }}</span>
+              </h2>
             </div>
             <div class="content">
               <div class="top">
@@ -69,6 +75,8 @@
 import Logo from "../assets/hamburger.png";
 import addImage from "../assets/addImage.png";
 import { useRouter } from "vue-router";
+import { ref } from "vue";
+const story = ref("story created");
 
 const storedItem = localStorage.getItem("sessionName");
 const storyNumber = localStorage.getItem("storyTextsNumber");
@@ -80,26 +88,14 @@ const navigatePage = () => {
 <style scoped>
 main {
   background: url(../assets/group.svg);
+  height: 100vh;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
-.main {
-  width: 90%;
-  display: flex;
-  /* background-color: aqua; */
-  display: flex;
-  margin: 70px 0 0 52px;
-}
-
-.right {
-  width: 40%;
-  /* background-color: greenyellow; */
-}
-
 .right {
   transform: scale(0.8);
 }
-
 .logo img {
   margin-top: 31px;
   margin-left: 50px;
@@ -110,6 +106,7 @@ main {
 .session {
   width: 397px;
   text-align: center;
+  transform: translate(120px, -70px);
 }
 h1 {
   font-size: 52px;
@@ -119,8 +116,12 @@ h1 {
   height: 506px;
   border-radius: 8px;
   background-color: rgba(253, 245, 242, 1);
+  transform: translate(120px, -60px);
 }
-
+h2 {
+  justify-content: center;
+  align-items: center;
+}
 .head {
   background-color: rgba(228, 122, 83, 1);
   color: white;
@@ -141,6 +142,7 @@ h1 {
 }
 .players {
   margin-left: 50px;
+  border-radius: 8px;
 }
 .players ul li {
   font-style: bold;
@@ -148,7 +150,6 @@ h1 {
   font-weight: 700;
   margin-bottom: 14px;
 }
-
 .vote button {
   width: 127px;
   height: 40px;
@@ -178,19 +179,17 @@ hr {
 #hr2 {
   transform: translate(65px, -5px);
 }
-
 .btn-container {
   margin-top: 10px;
   margin-left: 65px;
 }
-
 .top-btn {
   display: flex;
 }
-
 .main-container {
   display: flex;
   gap: 10px;
+  /* background-color: blue; */
 }
 .re-vote-btn button {
   height: 28px;
@@ -206,7 +205,6 @@ hr {
   background: white;
   color: #c93900;
 }
-
 .end-session-btn button {
   height: 28px;
   width: 132px;
@@ -216,12 +214,14 @@ hr {
   border: 1px;
   font-size: 16px;
 }
-
+/* .end-session-btn button:hover {
+  background: white;
+  color: #C93900;
+} */
 .down-btn {
   display: flex;
   margin-top: 20px;
 }
-
 .cancel-Session-btn button {
   height: 28px;
   width: 132px;
@@ -232,7 +232,10 @@ hr {
   margin-right: 10px;
   font-size: 16px;
 }
-
+/* .cancel-Session-btn button:hover {
+  background: white;
+  color: #C93900;
+} */
 .reveal-Card-btn button {
   height: 28px;
   width: 132px;
@@ -242,4 +245,8 @@ hr {
   border: 1px;
   font-size: 16px;
 }
+/* .reveal-Card-btn button:hover {
+  background: white;
+  color: #C93900;
+} */
 </style>
