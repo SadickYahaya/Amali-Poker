@@ -30,26 +30,26 @@
     </div>
     <div class="card-select">
       <div class="card-option" @click="toggleAccord">
-        {{ "Custom Card values" }}
-        <img src="../../assets/Polygon 2.svg" alt="" />
-      </div>
-      <div class="accord" v-if="accord">
-        <div class="option" v-for="item in accordItem" :key="item">
-          <div class="text">
-            <input
-              type="checkbox"
-              class="checkbox"
-              :id="item.label"
-              :checked="item.selected"
-              @click="selectedLabel(item)"
-            />
-            <label :for="item.label">{{ item.label }}</label>
+        <div class="cards">
+          {{ "Custom Card values" }}
+          <img src="../../assets/Polygon 2.svg" alt="" />
+        </div>
+        <div class="accord" v-if="accord">
+          <div class="option" v-for="item in accordItem" :key="item">
+            <div class="text">
+              <input
+                type="checkbox"
+                class="checkbox"
+                :id="item.label"
+                :checked="item.selected"
+                @click="selectedLabel(item)"
+              />
+              <label :for="item.label">{{ item.label }}</label>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div v-for="item in storyTexts" :key="item" class="stories"></div>
 
     <div class="btn">
       <button class="crt-btn" @click="navigatePage">Create</button>
@@ -70,7 +70,6 @@ let showSessionname = ref(false);
 const sessionName = ref("");
 let error = ref(false);
 const accordItem = ref([
-  { label: "?", selected: false },
   { label: 1, selected: false },
   { label: 2, selected: false },
   { label: 3, selected: false },
@@ -80,22 +79,29 @@ const accordItem = ref([
   { label: 21, selected: false },
   { label: 34, selected: false },
   { label: 55, selected: false },
+  { label: "?", selected: false },
 ]);
 let accord = ref(false);
 
 const toggleAccord = () => {
-  accord.value = !accord.value;
+  accord.value = true;
 };
+
+// const closeAccordion = () => {
+//   accord.value = false;
+// };
 const navigate = useRouter();
 const navigatePage = () => {
   if (sessionName.value === "") {
     error.value = !error.value;
   } else {
+    localStorage.removeItem("storyTextsNumber");
+    localStorage.removeItem("Stories");
     navigate.push("/sessionName");
   }
 };
 
-const options = ref(["Fibonacci", "Scrum", "T-Shirts"]);
+const options = ref(["Fibonacci", "Scrum"]);
 
 let showDropdown = ref(false);
 let selectedOption = ref("");
@@ -126,7 +132,6 @@ const selectedLabel = (item) => {
 watch(selectedOption, (newOption) => {
   if (newOption === "Fibonacci") {
     accordItem.value = [
-      { label: "?", selected: false },
       { label: 1, selected: false },
       { label: 2, selected: false },
       { label: 3, selected: false },
@@ -136,10 +141,10 @@ watch(selectedOption, (newOption) => {
       { label: 21, selected: false },
       { label: 34, selected: false },
       { label: 55, selected: false },
+      { label: "?", selected: false },
     ];
   } else if (newOption === "Scrum") {
     accordItem.value = [
-      { label: "?", selected: false },
       { label: 0.5, selected: false },
       { label: 1, selected: false },
       { label: 2, selected: false },
@@ -148,6 +153,7 @@ watch(selectedOption, (newOption) => {
       { label: 5, selected: false },
       { label: 6, selected: false },
       { label: 7, selected: false },
+      { label: "?", selected: false },
     ];
   } else {
     accordItem.value = [];
@@ -183,7 +189,6 @@ h3 {
   margin: 24px;
 }
 .selected-option,
-.card-option,
 input {
   padding: 16px;
   border-radius: 8px;
@@ -223,6 +228,9 @@ button {
 .card-option {
   width: 575px;
   margin: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
 }
 
 .options {
@@ -231,8 +239,6 @@ button {
   background-color: #fdf5f2;
   width: 185px;
   padding: 13px 20px;
-  border: 1px solid;
-  text-decoration-line: underline;
 }
 
 .options,
@@ -242,10 +248,7 @@ button {
 }
 
 .accord {
-  position: fixed;
-  top: 55%;
-  z-index: 999;
-  width: 575px;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   background-color: #fdf5f2;
@@ -261,6 +264,11 @@ button {
 .checkbox {
   width: 30px;
   color: #fdf5f2;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
 }
 
 .story {
