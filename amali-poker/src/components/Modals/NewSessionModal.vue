@@ -49,12 +49,7 @@
       </div>
     </div>
 
-    <div v-for="item in storyTexts" :key="item" class="stories">
-      <!-- <div class="story">
-        <input type="checkbox" class="checkbox" />
-        <p>{{ item }}</p>
-      </div> -->
-    </div>
+    <div v-for="item in storyTexts" :key="item" class="stories"></div>
 
     <div class="btn">
       <button class="crt-btn" @click="navigatePage">Create</button>
